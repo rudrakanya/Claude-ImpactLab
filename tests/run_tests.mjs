@@ -10,6 +10,8 @@ import { WORK } from "../app/js/data/work_categories.js";
 import { SUBJECTS } from "../app/js/data/subjects.js";
 import { byId, subjectById, generatePath, checkpointFor, needsBasics, startQuiz, answerQuiz, currentQuestion, reinforcementStep, computeProgress, orderKey, cmp, skillsForTrack, skillCoverage, resourcesForSkill } from "../app/js/engine.js";
 import { JOB_SKILLS } from "../app/js/data/job_skills.js";
+import { COMPLETION_BANK } from "../app/js/data/completion_bank.js";
+import { exitCheckQuestions } from "../app/js/engine.js";
 
 let pass = 0, fail = 0; const failures = [];
 function check(name, cond, detail = "") { if (cond) pass++; else { fail++; failures.push(`${name} ${detail}`); } }
@@ -99,6 +101,21 @@ check("every skill maps to a track with keywords", JOB_SKILLS.skills.every((s) =
   check("gap filling finds free catalogue resources", !gap || opts.length > 0, gap ? gap.skill.skill : "");
   const withRes = JOB_SKILLS.skills.filter((s) => resourcesForSkill(s, 1, base, []).length > 0).length;
   check("most skills have at least one matching free resource", withRes >= 85, `${withRes}/105`);
+}
+// 6c. Completion check uses a separate bank
+for (let tr = 1; tr <= 14; tr++) for (let ti = 0; ti < 4; ti++) {
+  const pool = (COMPLETION_BANK[String(tr)] || [])[ti] || [];
+  check(`completion bank ${tr}/${ti} has 5 items`, pool.length === 5, String(pool.length));
+  const levelQs = new Set(((QUIZ_BANK[String(tr)] || [])[ti] || []).map((q) => q.q));
+  check(`completion bank ${tr}/${ti} disjoint from level check`, pool.every((q) => !levelQs.has(q.q)));
+  check(`completion bank ${tr}/${ti} items well-formed`, pool.every((q) => q.q && q.hq && q.opts.length === 4 && q.a >= 0 && q.a < 4));
+}
+{
+  const a = exitCheckQuestions(4, 1, 0), b = exitCheckQuestions(4, 1, 1);
+  check("completion check draws 4 distinct questions", a.length === 4 && new Set(a.map((q) => q.q)).size === 4);
+  check("retake rotates to different questions", a.map((q) => q.q).join("|") !== b.map((q) => q.q).join("|"));
+  check("completion check never reuses level-check items", a.every((q) => !((QUIZ_BANK["4"][1] || []).concat(QUIZ_BANK["4"][2] || [])).some((l) => l.q === q.q)));
+  check("Master completion check draws from its own pool", exitCheckQuestions(8, 3, 0).length === 4);
 }
 // 7. Mentor agreement on synthetic profiles
 let agree = 0; const rows = [];

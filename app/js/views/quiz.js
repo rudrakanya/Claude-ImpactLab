@@ -1,4 +1,4 @@
-// Adaptive placement quiz: cross-checks self-rating against demonstrated competence, then builds the path.
+// Adaptive level check: cross-checks self-rating against demonstrated competence, then builds the path.
 import { t, tt, getLang } from "../i18n.js";
 import { esc, icon } from "../ui.js";
 import { gl } from "../glossary.js";

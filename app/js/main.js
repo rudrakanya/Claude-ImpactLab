@@ -11,8 +11,9 @@ import * as summary from "./views/summary.js";
 import * as account from "./views/account.js";
 import * as add from "./views/add.js";
 import * as about from "./views/about.js";
+import * as help from "./views/help.js";
 
-const routes = { home, intake, quiz, dashboard, summary, account, add, about };
+const routes = { home, intake, quiz, dashboard, summary, account, add, about, help };
 let routeOpts = {};
 const ctx = { go(route, opts = {}) { routeOpts = opts; if (location.hash === `#/${route}`) renderRoute(); else location.hash = `#/${route}`; } };
 
@@ -28,6 +29,7 @@ function renderTop() {
   $("#top").innerHTML = `
     <div class="brand" data-go="${nav}" role="link" tabindex="0"><div class="logo">${icon("map")}</div><span>${esc(t("appName"))}</span></div>
     <div class="pill-toggle" aria-label="${esc(t("language"))}"><button class="${getLang() === "en" ? "on" : ""}" data-lang="en">EN</button><button class="${getLang() === "hi" ? "on" : ""}" data-lang="hi">हिं</button></div>
+    <button class="icon-btn" data-go="help" aria-label="${esc(t("help"))}" title="${esc(t("help"))}">${icon("help")}</button>
     <button class="icon-btn" data-go="account" aria-label="${esc(t("account"))}">${icon("user")}</button>
     <button class="icon-btn" id="theme" aria-label="${esc(t("theme"))}">${icon(theme === "dark" ? "sun" : "moon")}</button>`;
   $("#top").querySelectorAll("[data-go]").forEach((b) => { b.onclick = () => ctx.go(b.dataset.go); b.onkeydown = (e) => { if (e.key === "Enter") ctx.go(b.dataset.go); }; });

@@ -16,7 +16,7 @@ function planText(profile, ts, tid) {
 - Device: ${t("dev_" + profile.device)}; time: ${profile.hoursPerWeek} hours/week
 - English reading comfort: ${profile.english}/5; general tech familiarity: ${profile.tech}/5
 - Prior exposure: ${profile.exposure.length ? profile.exposure.join(", ") : "none"}
-- Track: ${tr.en}; placed tier: ${TRACKS.tierLabels[ts.tier].en} (self-rated ${TRACKS.tierLabels[ts.selfTier].en}; placement quiz ${ts.quiz ? ts.quiz.correct + "/" + ts.quiz.total : "n/a"})
+- Track: ${tr.en}; level after check: ${TRACKS.tierLabels[ts.tier].en} (self-rated ${TRACKS.tierLabels[ts.selfTier].en}; level check ${ts.quiz ? ts.quiz.correct + "/" + ts.quiz.total : "n/a"})
 - Progress: ${prog.done}/${prog.total} steps done, ${prog.withCheckpoint} checkpoints complete, XP ${prog.xp}
 
 ORDERED PATH (free resources only)
@@ -44,7 +44,7 @@ export function mentorPrompt(profile, ts, tid) {
   return `You are an experienced technology mentor reviewing an automatically generated learning path for a learner in Bhopal, India. The path was assembled offline from a curated catalogue of free resources, ordered anchor-first, then by ascending time cost.
 
 Review the plan below and answer concisely:
-1. Is the placed tier appropriate given the profile and quiz result? If not, which tier and why.
+1. Is the level after check appropriate given the profile and quiz result? If not, which tier and why.
 2. Is the ordering sensible? Name any step you would move, remove, or replace (free resources only), with a one-line reason.
 3. Which of the uncovered local in-demand skills matter most for this learner's objective, and where in the path would you insert one free resource for each?
 4. Rate the capstone's acceptance criteria: concrete and self-checkable? Suggest one improvement.

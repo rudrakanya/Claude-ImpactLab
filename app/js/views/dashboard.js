@@ -77,6 +77,7 @@ function resTags(r, step) {
   if (r.st !== "ok") tags.push(`<span class="tag warn">${esc(t("status_" + r.st))}</span>`);
   return tags.join("");
 }
+const FB_EMOJI = { easy: "😴", right: "👍", hard: "😵" };
 const KIND = { tooling: { en: "Tooling basics", hi: "टूलिंग बेसिक्स" }, warmup: { en: "Quick win", hi: "त्वरित जीत" }, skill: { en: "Skill gap", hi: "स्किल कमी" }, anchor: { en: "Vetted anchor", hi: "जांचा हुआ मुख्य" }, alt: { en: "Alternative style", hi: "वैकल्पिक शैली" }, fill: { en: "Builds on the above", hi: "ऊपर पर आधारित" }, template: { en: "Mentor template", hi: "मेंटर टेम्पलेट" }, reinforce: { en: "Reinforcement", hi: "मज़बूती" } };
 
 function stepHtml(step, i, ts, nextIdx) {
@@ -87,7 +88,7 @@ function stepHtml(step, i, ts, nextIdx) {
   return `<div class="step ${done ? "done" : ""} ${current ? "current" : ""} ${locked ? "locked" : ""} ${step.kind === "tooling" ? "tooling" : ""}" data-step="${esc(step.id)}">
     <div class="num">${done ? icon("check") : i + 1}</div>
     <div class="body">
-      <div class="row-between"><div class="title">${esc(r.n)}</div><span class="tag accent tiny">${esc(tt(KIND[step.kind] || KIND.fill))}</span></div>
+      <div class="row-between"><div class="title">${esc(r.n)}</div><span class="tags">${c.feedback ? `<span class="tag fb-tag ${c.feedback}">${FB_EMOJI[c.feedback]} ${esc(t(c.feedback))}</span>` : ""}<span class="tag accent tiny">${esc(tt(KIND[step.kind] || KIND.fill))}</span></span></div>
       <div class="meta">${resTags(r, step)}</div>
       <div class="small muted">${gl(r.cov)}${step.why && step.why !== "reinforce" ? ` <i>· ${esc(step.why)}</i>` : ""}</div>
       ${step.capped ? `<div class="tiny muted-2">${esc(t("cappedNote"))}</div>` : ""}
@@ -96,26 +97,33 @@ function stepHtml(step, i, ts, nextIdx) {
         <a class="btn btn-ghost btn-sm" href="${esc(r.u)}" target="_blank" rel="noopener noreferrer">${icon("external")} ${esc(t("open"))}</a>
         ${!locked ? (done ? `<button class="btn btn-ghost btn-sm" data-undo="${esc(step.id)}">${icon("refresh")} ${esc(t("undo"))}</button>` : `<button class="btn btn-primary btn-sm" data-done="${esc(step.id)}">${icon("check")} ${esc(t("markDone"))}</button>`) : `<span class="tag">${icon("lock")} ${esc(tt({ en: "Unlocks after the previous step", hi: "पिछला कदम पूरा होने पर खुलेगा" }))}</span>`}
       </div>
-      <details ${current ? "open" : ""}><summary>🧪 ${esc(t("checkpoint"))}: ${esc(cp.title)}</summary>
+      <details ${current ? "open" : ""}><summary>🧪 ${esc(t("checkpoint"))}: ${esc(cp.title)} <a href="#/help" class="tag accent" style="margin-left:auto;text-decoration:none">${icon("help")} ${esc(t("stuck"))}</a></summary>
         <ul class="checklist">${cp.criteria.map((cr, k) => `<li><input type="checkbox" id="ck-${esc(step.id)}-${k}" data-ck="${esc(step.id)}" data-k="${k}" ${checks[k] ? "checked" : ""} ${locked ? "disabled" : ""}><label for="ck-${esc(step.id)}-${k}">${gl(cr)}</label></li>`).join("")}</ul>
       </details>
       ${done ? (checks.length && checks.every(Boolean) ? `<div class="fb"><span class="small muted" style="flex-basis:100%">${esc(t("howWasIt"))}</span>
-        ${["easy", "right", "hard"].map((f) => `<button class="btn btn-sm ${c.feedback === f ? "btn-primary" : "btn-ghost"}" data-fb="${f}" data-sid="${esc(step.id)}">${f === "easy" ? "😴" : f === "right" ? "👍" : "😵"} ${esc(t(f))}</button>`).join("")}</div>`
+        ${["easy", "right", "hard"].map((f) => `<button class="btn btn-sm ${c.feedback === f ? "btn-primary fb-on" : "btn-ghost"}" data-fb="${f}" data-sid="${esc(step.id)}" aria-pressed="${c.feedback === f}">${c.feedback === f ? icon("check") : ""}${FB_EMOJI[f]} ${esc(t(f))}</button>`).join("")}</div>
+        ${c.feedback ? `<div class="fb-received ${c.feedback}">${icon("check")} <b>${esc(t("fbReceived"))}:</b> ${FB_EMOJI[c.feedback]} ${esc(t(c.feedback))} <span class="muted-2">· ${esc(t("fbChange"))}</span></div>` : ""}`
         : `<div class="tiny muted-2" style="margin-top:8px">${icon("lock")} ${esc(t("fbLocked"))}</div>`) : ""}
     </div></div>`;
 }
 
+const OVERLAP_DAYS = 3; // related steps overlap: start the next while finishing the current checkpoint
 function timelineHtml(ts, nextIdx) {
-  const steps = ts.path.steps; const cols = Math.min(40, steps.reduce((s, x) => s + x.weeks, 0) + 2);
-  let wk = 0; const rows = steps.map((st, i) => { const start = wk; wk += st.weeks; return { st, i, start, span: Math.min(st.weeks, cols - start) }; });
-  const capStart = wk;
-  const cell = (rowStart, span, cls, label) => Array.from({ length: cols }, (_, w) => `<td class="cell ${w === 0 ? "cur" : ""}">${w === rowStart ? `<div class="gbar ${cls}" style="left:2px;width:${span * 44 - 6}px">${label}</div>` : ""}</td>`).join("");
+  const steps = ts.path.steps;
+  // Positions in days; consecutive steps of the same track overlap by a few days.
+  let cursor = 0; const rows = steps.map((st, i) => {
+    const prev = steps[i - 1]; const related = prev && byId.get(prev.rid).tr === byId.get(st.rid).tr;
+    const start = Math.max(0, cursor - (related ? OVERLAP_DAYS : 0)); const days = st.weeks * 7; cursor = start + days;
+    return { st, i, start, days };
+  });
+  const capStart = cursor; const cols = Math.min(40, Math.ceil((capStart + 14) / 7));
+  const cell = (startDays, days, cls, label) => Array.from({ length: cols }, (_, w) => { const sw = Math.floor(startDays / 7); return `<td class="cell ${w === 0 ? "cur" : ""}">${w === sw ? `<div class="gbar ${cls}" style="left:${2 + ((startDays % 7) / 7) * 44}px;width:${Math.max(30, (days / 7) * 44 - 6)}px">${label}</div>` : ""}</td>`; }).join("");
   return `<div class="timeline"><table>
     <thead><tr><th class="name" style="text-align:left;padding:0 10px;font-weight:500;color:var(--text-3)">${esc(t("step"))}</th>${Array.from({ length: cols }, (_, w) => `<th class="wk ${w === 0 ? "cur" : ""}">W${w + 1}</th>`).join("")}</tr></thead>
-    <tbody>${rows.map(({ st, i, start, span }) => { const r = byId.get(st.rid); const done = !!(ts.completions[st.id] || {}).doneAt; return `<tr><td class="name" title="${esc(r.n)}">${i + 1}. ${esc(r.n)}</td>${cell(start, span, done ? "done" : i === nextIdx ? "current" : "", `${done ? "✓ " : ""}${esc(r.n)}`)}</tr>`; }).join("")}
-    ${ts.path.capstone ? `<tr><td class="name">🏁 ${esc(tt(ts.path.capstone))}</td>${cell(Math.min(capStart, cols - 1), Math.max(1, Math.min(2, cols - capStart)), "capstone", "🏁 " + esc(tt(ts.path.capstone)))}</tr>` : ""}
+    <tbody>${rows.map(({ st, i, start, days }) => { const r = byId.get(st.rid); const done = !!(ts.completions[st.id] || {}).doneAt; return `<tr><td class="name" title="${esc(r.n)}">${i + 1}. ${esc(r.n)}</td>${cell(start, days, done ? "done" : i === nextIdx ? "current" : "", `${done ? "✓ " : ""}${esc(r.n)}`)}</tr>`; }).join("")}
+    ${ts.path.capstone ? `<tr><td class="name">🏁 ${esc(tt(ts.path.capstone))}</td>${cell(Math.min(capStart, (cols - 1) * 7), 14, "capstone", "🏁 " + esc(tt(ts.path.capstone)))}</tr>` : ""}
     </tbody></table></div>
-    <p class="tiny muted-2" style="margin:8px 0 0">${esc(tt({ en: "Weeks are estimates from the resource hours and your weekly time. Steps are sequential; each unlocks after the previous.", hi: "हफ़्ते संसाधन के घंटों और आपके साप्ताहिक समय से अनुमानित हैं। कदम क्रम में हैं; हर एक पिछले के बाद खुलता है।" }))}</p>`;
+    <p class="tiny muted-2" style="margin:8px 0 0">${esc(tt({ en: "Weeks are estimates from the resource hours and your weekly time.", hi: "हफ़्ते संसाधन के घंटों और आपके साप्ताहिक समय से अनुमानित हैं।" }))} ${esc(t("overlapNote"))}</p>`;
 }
 
 function capstoneHtml(ts, prog) {
@@ -139,6 +147,8 @@ function promotionHtml(ts, prog) {
     ${req(prog.evidenceOk, t("reqEvidence"), `${prog.withCheckpoint}/${prog.evidenceThreshold}`)}
     ${req(prog.capstoneOk, t("reqCapstone"))}
     ${req(prog.exitOk, t("reqExit"), ex.score !== undefined ? `${ex.score}/${ex.total}` : "")}
+    <details style="margin-top:10px"><summary style="cursor:pointer;font-weight:600;font-size:.9rem">${icon("help")} ${esc(t("ccGuideTitle"))}</summary>
+      <ol class="hiw" style="margin-top:8px">${["ccGuide1", "ccGuide2", "ccGuide3", "ccGuide4", "ccGuide5"].map((k) => `<li>${esc(t(k))}</li>`).join("")}</ol></details>
     <div class="row" style="margin-top:12px">
       ${!prog.exitOk ? `<button class="btn btn-ghost" data-act="exit">${icon("shield")} ${esc(t("takeExit"))}</button>` : ""}
       <button class="btn btn-primary" data-act="promote" ${prog.promotable ? "" : "disabled"}>${icon("zap")} ${esc(t("promote"))}</button>
@@ -191,6 +201,7 @@ function wire(root, ctx, tid, ts) {
   root.querySelectorAll("[data-ck]").forEach((cb) => cb.onchange = () => { const id = cb.dataset.ck; const st = ts.path.steps.find((s) => s.id === id); const c = ts.completions[id] || {}; c.checkpoint = c.checkpoint || st.checkpoint.en.criteria.map(() => false); c.checkpoint[Number(cb.dataset.k)] = cb.checked; ts.completions[id] = c; persistSession(); });
   root.querySelectorAll("[data-fb]").forEach((b) => b.onclick = () => {
     const id = b.dataset.sid; ts.completions[id].feedback = b.dataset.fb;
+    toast(`${icon("check")} ${t("fbReceived")}: ${FB_EMOJI[b.dataset.fb]} ${t(b.dataset.fb)}`);
     const pattern = feedbackPattern(ts);
     if (pattern === "hard") {
       const idx = nextStepIndex(ts);
@@ -238,7 +249,15 @@ function wire(root, ctx, tid, ts) {
 }
 
 function runExitCheck(root, ctx, tid, ts, early = false) {
-  const qs = exitCheckQuestions(tid, ts.tier).map(presentQuestion); let i = 0, score = 0;
+  // Guideline first, then the four questions.
+  const g = sheet(`<h3>${icon("shield")} ${esc(t("exitCheck"))}</h3><p class="small muted">${esc(t("ccGuideTitle"))}</p>
+    <ol class="hiw">${["ccGuide1", "ccGuide2", "ccGuide3", "ccGuide4", "ccGuide5"].map((k) => `<li>${esc(t(k))}</li>`).join("")}</ol>
+    <button class="btn btn-primary btn-block" id="cc-start" style="margin-top:12px">${icon("arrowRight")} ${esc(t("startCheck"))}</button>`, { closeLabel: tt({ en: "Not now", hi: "अभी नहीं" }) });
+  g.querySelector("#cc-start").onclick = () => runExitQuestions(root, ctx, tid, ts, early);
+}
+function runExitQuestions(root, ctx, tid, ts, early) {
+  ts.exitAttempts = (ts.exitAttempts || 0) + 1; persistSession();
+  const qs = exitCheckQuestions(tid, ts.tier, ts.exitAttempts - 1).map(presentQuestion); let i = 0, score = 0;
   const draw = () => {
     const q = qs[i];
     if (!q) {

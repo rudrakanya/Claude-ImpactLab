@@ -73,14 +73,15 @@ function stepHtml(d) {
     <h2>${esc(t("s3Title"))}</h2><p class="muted">${esc(t("s3Lead"))}</p>
     <div class="field"><input id="q" class="input" type="search" placeholder="${esc(t("searchPh"))}" autocomplete="off" ${d.subjects.length >= 2 ? "disabled" : ""}><div class="search-results" id="results" hidden></div></div>
     <div id="chosen">${chosenHtml(d)}</div>
-    <div class="field" style="margin-top:14px"><span class="label small muted">${esc(t("popular"))}</span>
-      <div class="chips">${REFERENCE_PATHWAYS.pathways.filter((p) => p.tier === 0).map((p) => `<button class="chip" data-pick="tr-${p.track}" data-tpl="${p.id}"><span class="em">${trackOf(p.track).emoji}</span>${esc(tt(p.goal))}</button>`).join("")}</div></div>
-    <div class="field"><span class="label small muted">${esc(tt({ en: "Or browse the 14 tracks", hi: "या 14 ट्रैक देखें" }))}</span>
-      <div class="chips">${TRACKS.tracks.map((tr) => `<button class="chip" data-pick="tr-${tr.id}"><span class="em">${tr.emoji}</span>${esc(getLang() === "hi" ? tr.hi : tr.en)}</button>`).join("")}</div></div>`;
+    <div class="field" style="margin-top:14px"><span class="label small muted">${esc(tt({ en: "Or tap a goal", hi: "या कोई लक्ष्य टैप करें" }))}</span>
+      <div class="chips">${goalChips()}</div></div>`;
   if (d.step === 3) return `
     <h2>${esc(t("s4Title"))}</h2><p class="muted">${esc(t("s4Lead"))}</p>
-    ${d.subjects.map((sid) => { const s = subj(sid); const tr = trackOf(s.track); return `<div class="field"><span class="label">${tr.emoji} ${esc(label(s))} <span class="muted-2 small">· ${esc(getLang() === "hi" ? tr.hi : tr.en)}</span></span>
-      <div class="competence">${[0, 1, 2, 3, 4].map((n) => `<button class="${d.comp[sid] === n ? "on" : ""}" data-comp="${sid}" data-v="${n}"><span class="n">${n}</span><span>${esc(t("c" + n))}</span></button>`).join("")}</div></div>`; }).join("")}`;
+    ${d.subjects.map((sid) => { const s = subj(sid); const tr = trackOf(s.track); const v = d.comp[sid] ?? 0; return `<div class="field comp-field" data-sid="${esc(sid)}"><span class="label">${tr.emoji} ${esc(label(s))} <span class="muted-2 small">· ${esc(getLang() === "hi" ? tr.hi : tr.en)}</span></span>
+      <div class="help" style="margin:0 0 6px">${esc(t("s4Slider"))}</div>
+      <input class="slider comp-slider" type="range" min="0" max="4" step="1" value="${v}" data-compslider="${esc(sid)}" aria-label="${esc(label(s))}">
+      <div class="scale-ends"><span>${esc(t("c0"))}</span><span>${esc(t("c4"))}</span></div>
+      <div class="inner" style="margin-top:8px"><b class="comp-val">${v}</b> · <span class="comp-txt">${esc(t("c" + v))}</span> <span class="tag tier-${COMP_TO_TIER[v]} comp-tier" style="margin-left:6px">${esc(tt(TRACKS.tierLabels[COMP_TO_TIER[v]]))}</span></div></div>`; }).join("")}`;
   const tiers = TRACKS.tierLabels;
   return `
     <h2>${esc(t("s5Title"))}</h2><p class="muted">${esc(t("s5Lead"))}</p>
@@ -88,6 +89,14 @@ function stepHtml(d) {
     <div class="inner"><b>${esc(t("device"))}</b><br>${esc(t("dev_" + d.device))} · ${d.hoursPerWeek} ${esc(t("hoursShort"))}/${esc(tt({ en: "week", hi: "हफ़्ता" }))}</div>
     <div class="inner"><b>${esc(tt({ en: "English", hi: "अंग्रेज़ी" }))}</b> ${d.english}/5 · <b>${esc(tt({ en: "Tech", hi: "तकनीक" }))}</b> ${d.tech}/5 · <b>${esc(tt({ en: "Prior exposure", hi: "पिछला अनुभव" }))}</b> ${Object.values(d.exposure).filter(Boolean).length}/${EXPOSURE_ITEMS.length}</div>
     ${d.subjects.map((sid) => { const s = subj(sid); const tr = trackOf(s.track); const c = d.comp[sid] ?? 0; return `<div class="inner"><b>${tr.emoji} ${esc(label(s))}</b><br><span class="muted">${esc(getLang() === "hi" ? tr.hi : tr.en)} · ${esc(t("selfSaid"))}: ${esc(t("c" + c))} → <span class="tag tier-${COMP_TO_TIER[c]}">${esc(tt(tiers[COMP_TO_TIER[c]]))}</span></span></div>`; }).join("")}`;
+}
+// One chip per area: a mentor-authored goal where one exists, otherwise the area's plain name. No duplicates.
+function goalChips() {
+  const goals = REFERENCE_PATHWAYS.pathways.filter((p) => p.tier === 0);
+  const covered = new Set(goals.map((p) => p.track));
+  const chips = goals.map((p) => `<button class="chip" data-pick="tr-${p.track}" data-tpl="${p.id}"><span class="em">${trackOf(p.track).emoji}</span>${esc(tt(p.goal))}</button>`);
+  for (const tr of TRACKS.tracks) if (!covered.has(tr.id)) chips.push(`<button class="chip" data-pick="tr-${tr.id}"><span class="em">${tr.emoji}</span>${esc(getLang() === "hi" ? tr.hi : tr.en)}</button>`);
+  return chips.join("");
 }
 function chosenHtml(d) {
   if (!d.subjects.length) return "";
@@ -113,6 +122,13 @@ function wire(d, root, ctx, draw) {
     if (b.dataset.rm) { d.subjects = d.subjects.filter((s) => s !== b.dataset.rm); delete d.comp[b.dataset.rm]; return draw(); }
     if (b.dataset.comp) { d.comp[b.dataset.comp] = Number(b.dataset.v); return draw(); }
   };
+  body.querySelectorAll("[data-compslider]").forEach((sl) => {
+    const sid = sl.dataset.compslider; if (d.comp[sid] === undefined) d.comp[sid] = Number(sl.value);
+    sl.oninput = () => { const v = Number(sl.value); d.comp[sid] = v; saveDraft(d); const f = sl.closest(".comp-field");
+      f.querySelector(".comp-val").textContent = v; f.querySelector(".comp-txt").textContent = t("c" + v);
+      const tg = f.querySelector(".comp-tier"); tg.className = `tag tier-${COMP_TO_TIER[v]} comp-tier`; tg.textContent = tt(TRACKS.tierLabels[COMP_TO_TIER[v]]); };
+  });
+  saveDraft(d);
   const hours = body.querySelector("#hours");
   if (hours) hours.oninput = () => { d.hoursPerWeek = Number(hours.value); body.querySelector("#hoursv").textContent = hours.value; saveDraft(d); };
   const q = body.querySelector("#q");

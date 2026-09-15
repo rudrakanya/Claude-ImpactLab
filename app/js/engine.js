@@ -4,6 +4,7 @@ import { CATALOGUE } from "./data/catalogue.js";
 import { PICKS } from "./data/picks.js";
 import { TRACKS } from "./data/tracks.js";
 import { QUIZ_BANK } from "./data/quiz_bank.js";
+import { COMPLETION_BANK } from "./data/completion_bank.js";
 import { CAPSTONES } from "./data/capstones.js";
 import { REFERENCE_PATHWAYS } from "./data/reference_pathways.js";
 import { SUBJECTS } from "./data/subjects.js";
@@ -17,7 +18,7 @@ export const subjectById = new Map(SUBJECTS.map((s) => [s.id, s]));
 export const TIER_NAMES = TRACKS.tiers; // catalogue names
 export const TIER_LABELS = TRACKS.tierLabels; // product-facing
 
-// Prior-exposure checklist. "basic" items gate the tooling-basics module; the rest inform placement context.
+// Prior-exposure checklist. "basic" items gate the tooling-basics module; the rest inform level check context.
 export const EXPOSURE_ITEMS = [
   { id: "file", basic: true },      // found a downloaded file in a file manager and opened it
   { id: "cloud", basic: true },     // uploaded a file to Drive/OneDrive and shared a link
@@ -227,7 +228,7 @@ export function reinforcementStep(profile, track, tier, excludeIds) {
   return r ? Object.assign(makeStep(r, "reinforce", Math.max(0, tier - 1), profile, `re-${r.id}-${Date.now()}`), { why: "reinforce" }) : null;
 }
 
-// ---------------- adaptive placement quiz ----------------
+// ---------------- adaptive level check ----------------
 export function quizQuestions(track, level) {
   const bank = QUIZ_BANK[String(track)];
   return bank ? bank[level] || [] : [];
@@ -347,7 +348,18 @@ export function skillStep(r, tier, profile, skill) {
   return Object.assign(makeStep(r, "skill", tier, profile, `sk-${r.id}`), { why: skill.skill });
 }
 
-export function exitCheckQuestions(track, tier) {
-  const a = quizQuestions(track, tier); const b = quizQuestions(track, Math.min(3, tier + 1));
-  return [...a, ...b];
+// Completion check: a separate bank from the level check, 5 items per track x tier. Draws 2 from the learner's tier
+// and 2 from the next tier (Master: 4 from its own pool), rotating with the attempt number so retakes see new items.
+export function completionPool(track, tier) {
+  const bank = COMPLETION_BANK[String(track)];
+  return bank && bank[tier] ? bank[tier] : quizQuestions(track, tier);
+}
+function rotate(arr, n, attempt) {
+  const out = []; const len = arr.length; if (!len) return out;
+  for (let i = 0; i < Math.min(n, len); i++) out.push(arr[(attempt * n + i) % len]);
+  return out;
+}
+export function exitCheckQuestions(track, tier, attempt = 0) {
+  if (tier >= 3) return rotate(completionPool(track, 3), 4, attempt);
+  return [...rotate(completionPool(track, tier), 2, attempt), ...rotate(completionPool(track, tier + 1), 2, attempt)];
 }

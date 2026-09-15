@@ -329,6 +329,7 @@ AUTHORED = [
     ("work_categories.json", "work_categories", "WORK"),
     ("reference_pathways.json", "reference_pathways", "REFERENCE_PATHWAYS"),
     ("quiz_bank.json", "quiz_bank", "QUIZ_BANK"),
+    ("completion_bank.json", "completion_bank", "COMPLETION_BANK"),
     ("capstones.json", "capstones", "CAPSTONES"),
     ("glossary.json", "glossary", "GLOSSARY"),
     ("synthetic_profiles.json", "synthetic_profiles", "SYNTHETIC_PROFILES"),

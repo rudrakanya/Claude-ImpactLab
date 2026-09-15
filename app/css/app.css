@@ -257,6 +257,16 @@ p { margin: 0 0 .75em; }
 .checklist input { margin-top: 3px; accent-color: var(--ok); width: 18px; height: 18px; }
 .fb { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
 .fb button { flex: 1; min-width: 90px; }
+.fb button.fb-on { box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 45%, transparent); animation: pop .3s var(--ease); }
+@keyframes pop { from { transform: scale(.92); } to { transform: none; } }
+.fb-received { margin-top: 8px; padding: 8px 12px; border-radius: 12px; font-size: .85rem; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; animation: up .3s var(--ease); border: 1px solid transparent; }
+.fb-received.right, .fb-tag.right { background: var(--ok-bg); border-color: color-mix(in srgb, var(--ok) 40%, transparent); color: var(--ok); }
+.fb-received.easy, .fb-tag.easy { background: var(--accent-bg); border-color: color-mix(in srgb, var(--accent) 40%, transparent); color: var(--accent); }
+.fb-received.hard, .fb-tag.hard { background: var(--warn-bg); border-color: color-mix(in srgb, var(--warn) 40%, transparent); color: var(--warn); }
+:root:not([data-theme="dark"]) .fb-received.right, :root:not([data-theme="dark"]) .fb-tag.right { color: #0f7a4a; }
+:root:not([data-theme="dark"]) .fb-received.easy, :root:not([data-theme="dark"]) .fb-tag.easy { color: #2a5fd6; }
+:root:not([data-theme="dark"]) .fb-received.hard, :root:not([data-theme="dark"]) .fb-tag.hard { color: #9a5b00; }
+.fb-received .muted-2 { color: inherit; opacity: .7; }
 .capstone { border: 1px dashed var(--accent); background: var(--accent-bg); }
 .tooling { border-left: 4px solid var(--warn); }
 

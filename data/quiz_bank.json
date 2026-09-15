@@ -1,5 +1,5 @@
 {
-  "note": "Adaptive placement quiz bank. Keys are track ids; each has 4 tier arrays (Newbie, Apprentice, Adept, Master) of questions. 'a' is the index of the correct option (options are shuffled deterministically at display time). 'tooling' is the basics cross-check shown when prior exposure is low. Newbie questions test working technical knowledge, not vocabulary alone.",
+  "note": "Adaptive level check bank. Keys are track ids; each has 4 tier arrays (Newbie, Apprentice, Adept, Master) of questions. 'a' is the index of the correct option (options are shuffled deterministically at display time). 'tooling' is the basics cross-check shown when prior exposure is low. Newbie questions test working technical knowledge, not vocabulary alone.",
   "tooling": [
     {"q":"A file is named report.final.pdf. Which app type opens it?","hq":"एक फ़ाइल का नाम report.final.pdf है। इसे किस तरह का ऐप खोलेगा?","opts":["A PDF reader such as a browser or Adobe Reader","A spreadsheet app","The camera app","A music player"],"a":0},
     {"q":"You need to send a 200 MB video to a mentor. What works best?","hq":"आपको मेंटर को 200 MB का वीडियो भेजना है। क्या सबसे अच्छा चलेगा?","opts":["Upload to Drive and share the link","Attach it to an email","Type it into a chat message","Take a screenshot of it"],"a":0},

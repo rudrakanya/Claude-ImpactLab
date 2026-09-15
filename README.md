@@ -1,6 +1,6 @@
 # What Should I Learn Next?
 
-Skills and digital literacy guidance for self-directed learners in Bhopal. A sticky, mobile-first intake (under five minutes) plus an adaptive placement quiz feed a **deterministic, fully offline** path mapper over a bundled catalogue of 881 free learning resources across 14 tracks and 4 competence tiers. Every step carries a templated checkpoint project; every track × tier has a hand-authored capstone; every track shows the categories of work it leads to in Bhopal, Indore or remote, never a job promise.
+Skills and digital literacy guidance for self-directed learners in Bhopal. A sticky, mobile-first intake (under five minutes) plus an adaptive level check feed a **deterministic, fully offline** path mapper over a bundled catalogue of 881 free learning resources across 14 tracks and 4 competence tiers. Every step carries a templated checkpoint project; every track × tier has a hand-authored capstone; every track shows the categories of work it leads to in Bhopal, Indore or remote, never a job promise.
 
 Built for the Claude hackathon. Design language: the frosted-glass system from `DesignAssets/` (auth card, dashboard cards, gantt timeline).
 
@@ -9,7 +9,7 @@ Built for the Claude hackathon. Design language: the frosted-glass system from `
 ## What makes it different
 
 - **Deep intake in under five minutes**, sticky on a phone: objective, device, weekly time, English comfort and tech familiarity on linear scales, an 8-item prior-exposure checklist, and a subject picker over 96 roadmap.sh roles/skills, 32 plain-language aliases, and 105 locally in-demand fresher skills.
-- **Adaptive placement check** (2 to 6 questions, options shuffled deterministically) that cross-checks self-rating against demonstrated competence before any path is built.
+- **Adaptive level check** (2 to 6 questions, options shuffled deterministically) that cross-checks self-rating against demonstrated competence before any path is built.
 - **Deterministic, offline path mapping**: anchor → alternative → fills by ascending time cost, adjusted for Hindi-first and phone-only learners, with a tooling-basics module for first-time users and mentor reference pathways as templates.
 - **A project at every step**: a checkpoint template derived from each resource's own type, plus 56 hand-authored capstones. Promotion needs evidence, capstone and an exit check, never elapsed time. Difficulty can be rated only after the checkpoint is complete, and the path re-plans from that signal.
 - **Local relevance**: per-track work categories (Bhopal / Indore / Remote, employers anonymised) and a coverage map of the 105 in-demand skills with one-tap free resources to fill gaps.
@@ -43,7 +43,7 @@ Then open http://localhost:8765. Guest mode has no backend dependency; after the
 | Path | What it is |
 |---|---|
 | `app/index.html`, `app/css/app.css` | Page shell and the frosted-glass design system (light/dark via `data-theme`, system preference by default) |
-| `app/js/engine.js` | Pure path engine: placement quiz state machine, path generation, checkpoint templates, re-planning, evidence/rank/promotion rules. Runs in the browser and in Node. |
+| `app/js/engine.js` | Pure path engine: level check state machine, path generation, checkpoint templates, re-planning, evidence/rank/promotion rules. Runs in the browser and in Node. |
 | `app/js/views/*.js` | Home, sticky intake, adaptive quiz, dashboard (list + gantt timeline, capstone, exit check, promotion, credentials, work panel), mentor one-pager, account/verify, add-track |
 | `app/js/i18n.js`, `app/js/glossary.js` | Pre-authored English/Hindi UI copy; tap-to-explain glossary wrapped around any plain-language term |
 | `app/js/credentials.js` | Per-device ECDSA P-256 credentials via Web Crypto; offline verifier |
@@ -53,7 +53,7 @@ Then open http://localhost:8765. Guest mode has no backend dependency; after the
 | `data/*.json`, `data/Top_100_Local_Tech_Fresher_Skills-v2.xlsx` | Hand-authored source data (work categories, mentor reference pathways, quiz bank, capstones, glossary, synthetic profiles) and the ranked local in-demand skills sheet |
 | `tools/build_data.py` | Builds `app/js/data/` from the CSV/Markdown catalogue, the roadmap.sh export, and `data/*.json` |
 | `tools/make_artifact.py` | Produces `dist/artifact.html` (body-only, CSS inlined) for hosts that wrap the page |
-| `tests/run_tests.mjs` | Node tests: catalogue integrity, determinism, quiz placement, re-planning, mentor agreement on synthetic profiles |
+| `tests/run_tests.mjs` | Node tests: catalogue integrity, determinism, quiz level check, re-planning, mentor agreement on synthetic profiles |
 
 ## Rebuild data and run tests
 
