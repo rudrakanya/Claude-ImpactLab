@@ -16,17 +16,9 @@ Built for the Claude hackathon. Design language: the frosted-glass system from `
 - **Ask Claude**: one tap copies a structured prompt with the learner's plan for a plain-language explanation, weekly schedule, or mentor-style review. No API key, nothing sent until the learner pastes it.
 - Hindi/English, tap-to-explain glossary, light/dark, device-signed credentials with an offline verifier, and a printable mentor one-pager.
 
-## Publish to GitHub
+## Source
 
-The repository is initialised with an MIT licence. To open-source it:
-
-```bash
-git remote add origin https://github.com/<you>/what-should-i-learn-next.git
-```
-
-```bash
-git push -u origin master
-```
+Open source under the MIT licence at https://github.com/rudrakanya/Claude-ImpactLab. Issues and pull requests are welcome; run the tests before opening one.
 
 ## Run locally
 
