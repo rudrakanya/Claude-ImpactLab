@@ -4,6 +4,30 @@ Skills and digital literacy guidance for self-directed learners in Bhopal. A sti
 
 Built for the Claude hackathon. Design language: the frosted-glass system from `DesignAssets/` (auth card, dashboard cards, gantt timeline).
 
+**Live demo:** https://claude.ai/artifact/8CFYV4iA6wyBGN1hbTVByh · **In-app walkthrough and demo script:** open *About this project* from the footer.
+
+## What makes it different
+
+- **Deep intake in under five minutes**, sticky on a phone: objective, device, weekly time, English comfort and tech familiarity on linear scales, an 8-item prior-exposure checklist, and a subject picker over 96 roadmap.sh roles/skills, 32 plain-language aliases, and 105 locally in-demand fresher skills.
+- **Adaptive placement check** (2 to 6 questions, options shuffled deterministically) that cross-checks self-rating against demonstrated competence before any path is built.
+- **Deterministic, offline path mapping**: anchor → alternative → fills by ascending time cost, adjusted for Hindi-first and phone-only learners, with a tooling-basics module for first-time users and mentor reference pathways as templates.
+- **A project at every step**: a checkpoint template derived from each resource's own type, plus 56 hand-authored capstones. Promotion needs evidence, capstone and an exit check, never elapsed time. Difficulty can be rated only after the checkpoint is complete, and the path re-plans from that signal.
+- **Local relevance**: per-track work categories (Bhopal / Indore / Remote, employers anonymised) and a coverage map of the 105 in-demand skills with one-tap free resources to fill gaps.
+- **Ask Claude**: one tap copies a structured prompt with the learner's plan for a plain-language explanation, weekly schedule, or mentor-style review. No API key, nothing sent until the learner pastes it.
+- Hindi/English, tap-to-explain glossary, light/dark, device-signed credentials with an offline verifier, and a printable mentor one-pager.
+
+## Publish to GitHub
+
+The repository is initialised with an MIT licence. To open-source it:
+
+```bash
+git remote add origin https://github.com/<you>/what-should-i-learn-next.git
+```
+
+```bash
+git push -u origin master
+```
+
 ## Run locally
 
 Any static server works. No build step is required to run.
@@ -25,7 +49,8 @@ Then open http://localhost:8765. Guest mode has no backend dependency; after the
 | `app/js/credentials.js` | Per-device ECDSA P-256 credentials via Web Crypto; offline verifier |
 | `app/js/auth.js`, `app/js/firebase-config.js` | Optional Firebase Auth + Firestore sync (client SDK only). Disabled by default. |
 | `app/js/data/*.js` | Generated, bundled reference data (identical for every learner) |
-| `data/*.json` | Hand-authored source data: work categories, mentor reference pathways, quiz bank, capstones, glossary, synthetic profiles |
+| `app/js/prompts.js` | Builds the "Ask Claude" learner and mentor prompts from the offline plan |
+| `data/*.json`, `data/Top_100_Local_Tech_Fresher_Skills-v2.xlsx` | Hand-authored source data (work categories, mentor reference pathways, quiz bank, capstones, glossary, synthetic profiles) and the ranked local in-demand skills sheet |
 | `tools/build_data.py` | Builds `app/js/data/` from the CSV/Markdown catalogue, the roadmap.sh export, and `data/*.json` |
 | `tools/make_artifact.py` | Produces `dist/artifact.html` (body-only, CSS inlined) for hosts that wrap the page |
 | `tests/run_tests.mjs` | Node tests: catalogue integrity, determinism, quiz placement, re-planning, mentor agreement on synthetic profiles |
