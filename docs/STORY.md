@@ -22,15 +22,17 @@ Live demo: https://claude.ai/artifact/8CFYV4iA6wyBGN1hbTVByh · Source: https://
 
 ## The build journey
 
-**Day one, morning: understand the data before designing anything.** The catalogue arrived as a CSV of 881 rows and a companion Markdown document whose "recommended primary-plus-alternative picks" table named a vetted anchor and alternative for all 56 area-by-tier cells. All 112 pick URLs resolved to catalogue rows, which made a deterministic, mentor-anchored sequencing rule possible. The roadmap.sh export supplied 96 named roles and skills; each was hand-mapped to one of the 14 areas so learners can search for "Kubernetes" or "React" while the path draws from the area's tiered pool.
+**Understanding the data before designing anything.** Spent the first hour creating a study resource list CSV of 881 rows and a companion Markdown document whose "recommended primary-plus-alternative picks" table named a vetted anchor and alternative for all 56 area-by-tier cells. 96 named roles and skills identified; each was mapped to one of the 14 core learning areas so learners can search for "Kubernetes" or "React" while the path draws from the field's tiered pool.
 
-**Build script first, app second.** A Python build turns the CSV, the picks table, the roadmap export, and later the skills spreadsheet into compact ES modules. The app never computes against a server; the same inputs produce the same path on any device, online or off.
+**Build script first, app second.** A Python build turns the CSV, the picks table, the roadmap export, and later the skills spreadsheet into compact modules. The app never computes against a server; the same inputs produce the same path on any device, online or off.
 
-**Authoring the missing layers.** The PRD asked for data that did not exist yet: 56 capstones with acceptance criteria, a placement bank, a glossary, mentor reference pathways, anonymised work categories, and synthetic learner profiles with mentor-written expected next steps. These were drafted with Claude, checked against the catalogue, and stored as plain JSON so a mentor can edit them without touching code.
+**Wrote a robust PRD based on problem statement parameters.** Understood the depth of the problem statement, constraints of the build challenge, and pared down an MVP design with the essential features, sacrificing a few that were nice to have, but presently disallowed or extraneous.
+
+**Authoring the missing layers.** The PRD asked for data that did not exist yet: 56 capstones with acceptance criteria, a placement bank, a glossary, mentor reference pathways, anonymized work categories, and synthetic learner profiles with mentor-written expected next steps. These were drafted with Claude, checked against the catalogue, and stored as plain JSON so a mentor can edit them easily without touching code.
 
 **Tests as the mentor in the loop.** A Node test suite checks catalogue integrity, path determinism for all 56 cells, quiz behaviour in every direction, re-planning, and agreement with the mentor judgment on twelve synthetic profiles. The first run exposed real defects: sparse Master cells producing two-step paths, duplicate catalogue URLs appearing twice, and a tooling-basics rule that ignored tech familiarity. Each fix was a small rule change and the suite grew with it. It now runs 654 checks; mentor agreement is 11 of 12, and the one disagreement is documented rather than hidden.
 
-**Iteration with the judges' rubric.** The second pass integrated the 105-skill local demand sheet, made the checklist and quiz items more technical, gated difficulty ratings on checkpoint completion, added the About page and the Ask Claude bridge, and put the code under an MIT licence on GitHub. The third pass came from a final read as a learner: the word "placement" was removed everywhere, goals and areas were merged into one chip list, the self-rating became a slider, related steps overlap on the calendar, the exit check became a "completion check" with a guideline and its own question pool, and a Help page was added for learners who get stuck.
+**Iteration with the judges' parameters.** The second pass integrated the 105-skill local demand sheet, made the checklist and quiz items more technical, gated difficulty ratings on checkpoint completion, added the About page and the Ask Claude bridge, and put the code under an MIT licence on GitHub. The third pass came from a final read as a learner: the word "placement" was removed everywhere, goals and areas were merged into one chip list, the self-rating became a slider, related steps overlap on the calendar, the exit check became a "completion check" with a guideline and its own question pool, and a Help page was added for learners who get stuck.
 
 ## Inclusive thinking behind the major design decisions
 
@@ -40,17 +42,17 @@ Live demo: https://claude.ai/artifact/8CFYV4iA6wyBGN1hbTVByh · Source: https://
 
 **No prior vocabulary is assumed.** The checklist asks "have you saved a file and found it again", not "do you know what a file system is". Any plain-language term anywhere in the app opens a two-sentence explanation. Learners with little exposure get a basics module before their subject so no one is dropped into jargon.
 
-**Self-rating is checked, not trusted or dismissed.** The level check exists because learners both overestimate and underestimate themselves; the synthetic profiles include both cases, and the result screen explains the difference without judgement.
+**Self-rating is checked, not trusted or dismissed.** The level check exists because learners both overestimate and underestimate themselves; the synthetic profiles include both cases, and the result screen explains the difference without judgement. In later iterations, can issue mentor verified crypto-credentials upon successful completion of the entire learning module including capstone.
 
-**Evidence over time.** Promotion never depends on elapsed time. It needs checkpoints, a capstone and a completion check, and the check draws different questions from the ones used at the start so it measures learning rather than memory.
+**Evidence over time.** Promotion never depends on elapsed time. It needs checkpoints, a capstone and a completion check, and the check draws on a different set of questions from the ones used at the temperature check during start of learning, so it measures learning rather than memory.
 
-**Honesty about work.** Categories of work and the skills they require come from anonymised public postings; no employer names, no listings, no promises. That constraint is rendered next to every work panel, not buried in policy text.
+**Realistic data from public job boards.** Categories of work and the skills they require have been scraped from anonymized public postings on the top 6 job boards in India for freshers looking for remote work opportunities; no employer names or actual listings. The constraint on no promises for job placement is transparently displayed next to every work panel, not buried in policy text.
 
 **Privacy by default.** Intake, quiz and progress live in the session and are discarded when it ends. Durable storage requires an explicit action: saving to the device or creating an account. The credential is a self-attestation signed on the device; anyone can verify it offline.
 
-**Claude where it helps, nowhere it would exclude.** Claude drafted the reference data and built the app, but the runtime path is deliberately deterministic and offline so it behaves identically for a learner on a weak connection. The Ask Claude button copies a prompt instead of calling an API, so no key, no cost and no data leaves the device until the learner pastes it.
+**Claude where it helps, nowhere it would exclude.** Claude drafted the reference data and built the app, but the runtime path is deliberately deterministic and offline so it behaves identically for a learner on a weak connection. The Ask Claude button copies a prompt instead of calling an API, so no key, no cost and no data leaves the device until the learner pastes it themselves.
 
-**Mentors and community spaces are first-class users.** The one-pager prints with blank comment lines, the reference pathways are a ground truth a mentor can edit, and the test suite is written in the mentor's own terms: expected next step per profile.
+**Mentors are manager level users.** A one-pager prints with blank comment lines, reference pathways are a ground truth that a mentor can edit, and the test suite is written in the mentor's own terms: expected next step per profile for customized mentor feedback.
 
 ## What is inside
 
