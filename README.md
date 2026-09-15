@@ -18,7 +18,7 @@ Built for the Claude hackathon. Design language: the frosted-glass system from `
 
 ## Source
 
-Open source under the MIT licence at https://github.com/rudrakanya/Claude-ImpactLab. Issues and pull requests are welcome; run the tests before opening one.
+Open source under the MIT licence at https://github.com/rudrakanya/Claude-ImpactLab. Issues and pull requests are welcome; run the tests before opening one. The solution summary, build journey and the inclusive thinking behind the main design decisions are in [docs/STORY.md](docs/STORY.md).
 
 ## Run locally
 
