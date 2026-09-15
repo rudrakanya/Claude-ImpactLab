@@ -1,0 +1,13 @@
+{
+  "name": "what-should-i-learn-next",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline-first learning-path guidance for self-directed learners in Bhopal",
+  "type": "module",
+  "scripts": {
+    "build:data": "python tools/build_data.py",
+    "build:artifact": "python tools/make_artifact.py",
+    "test": "node tests/run_tests.mjs",
+    "start": "python -m http.server 8765 --directory app"
+  }
+}

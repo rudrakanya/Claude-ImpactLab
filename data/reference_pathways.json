@@ -1,0 +1,109 @@
+{
+  "note": "Mentor-authored reference pathways for the most common goals. Each step references a catalogue row by URL (resolved to a resource id at build time). Mentors can check generated paths against these.",
+  "pathways": [
+    {"id":"rp-web-newbie","track":4,"tier":0,"goal":{"en":"Become a web developer, starting from zero","hi":"शून्य से वेब डेवलपर बनें"},
+     "steps":[
+       {"r":"url:https://fullstackopen.com/en/part0","why":"See what a web app actually is before writing any code."},
+       {"r":"url:https://www.theodinproject.com/paths/foundations/courses/foundations#html-foundations","why":"Structure a page with real HTML and finish the recipes project."},
+       {"r":"url:https://www.theodinproject.com/paths/foundations/courses/foundations#css-foundations","why":"Style it and learn the box model by inspecting in the browser."},
+       {"r":"url:https://flexboxfroggy.com/","why":"Quick win: layout by playing a game."},
+       {"r":"url:https://www.theodinproject.com/paths/foundations/courses/foundations#flexbox","why":"Apply flexbox to a landing page."},
+       {"r":"url:https://github.com/microsoft/Web-Dev-For-Beginners","why":"Alternative style: a lesson-by-lesson course with small projects, if Odin feels too text-heavy."}
+     ]},
+    {"id":"rp-web-fresher","track":4,"tier":1,"goal":{"en":"Become a web developer (already know HTML/CSS)","hi":"वेब डेवलपर बनें (HTML/CSS पहले से जानते हैं)"},
+     "steps":[
+       {"r":"url:https://fullstackopen.com/en/part1","why":"React from the start, with exercises you submit."},
+       {"r":"url:https://learn.microsoft.com/en-us/training/modules/use-developer-tools-to-debug-javascript/","why":"One-hour skill: debugging in the browser."},
+       {"r":"url:https://fullstackopen.com/en/part2","why":"Talk to a server; forms and effects."},
+       {"r":"url:https://fullstackopen.com/en/part3","why":"Write your own backend with Node and Express."},
+       {"r":"url:https://www.frontendmentor.io/challenges?types=free","why":"Practice track: build from real designs for your portfolio."}
+     ]},
+    {"id":"rp-data-newbie","track":5,"tier":0,"goal":{"en":"Get into data work, starting from spreadsheets","hi":"स्प्रेडशीट से शुरू करके डेटा के काम में आएं"},
+     "steps":[
+       {"r":"url:https://datacarpentry.org/spreadsheets-socialsci/","why":"Organise data properly in a sheet before anything else."},
+       {"r":"url:https://www.kaggle.com/learn/intro-to-sql","why":"Three hours to your first SQL queries in the browser."},
+       {"r":"url:https://sqlbolt.com/","why":"Interactive SQL lessons that run on a phone."},
+       {"r":"url:https://learn.microsoft.com/en-us/training/paths/azure-data-fundamentals-explore-core-data-concepts/","why":"Vocabulary of data systems, no installs."},
+       {"r":"url:https://mystery.knightlab.com/","why":"Quick win: solve a mystery with SQL."}
+     ]},
+    {"id":"rp-data-fresher","track":6,"tier":1,"goal":{"en":"Become a data analyst","hi":"डेटा एनालिस्ट बनें"},
+     "steps":[
+       {"r":"url:https://www.kaggle.com/learn/pandas","why":"pandas in four hours, in the browser."},
+       {"r":"url:https://www.kaggle.com/learn/data-cleaning","why":"Real data is messy; learn the standard fixes."},
+       {"r":"url:https://www.kaggle.com/learn/data-visualization","why":"Charts that answer questions."},
+       {"r":"url:https://www.data8.org/","why":"Foundations of data science with statistics, the anchor course."},
+       {"r":"url:https://www.openintro.org/book/ims/","why":"Statistics you can read on a phone, with free datasets."}
+     ]},
+    {"id":"rp-cyber-newbie","track":10,"tier":0,"goal":{"en":"Get started in cybersecurity","hi":"साइबर सुरक्षा में शुरुआत करें"},
+     "steps":[
+       {"r":"url:https://tryhackme.com/room/beginnerpathintro","why":"Two hours: what security work looks like."},
+       {"r":"url:https://www.netacad.com/courses/introduction-to-cybersecurity","why":"Vocabulary and threats, free with account."},
+       {"r":"url:https://github.com/microsoft/Security-101","why":"Anchor course: the fundamentals in short lessons."},
+       {"r":"url:https://overthewire.org/wargames/bandit/","why":"Practice track: Linux command line by solving levels (needs a computer or a terminal app)."},
+       {"r":"url:https://skillsforall.com/","why":"Alternative platform with structured beginner paths."}
+     ]},
+    {"id":"rp-cyber-fresher","track":10,"tier":1,"goal":{"en":"Move toward junior security analysis","hi":"जूनियर सुरक्षा विश्लेषण की ओर बढ़ें"},
+     "steps":[
+       {"r":"url:https://www.netacad.com/courses/network-support-and-security","why":"Networking is the base of security work."},
+       {"r":"url:https://www.netacad.com/courses/cybersecurity-essentials","why":"Core defensive concepts."},
+       {"r":"url:https://overthewire.org/wargames/natas/","why":"Web security by solving levels."},
+       {"r":"url:https://google-gruyere.appspot.com/","why":"Find real web vulnerabilities in a safe app."},
+       {"r":"url:https://www.netacad.com/courses/junior-cybersecurity-analyst-career-path","why":"A full career path once the basics are solid."}
+     ]},
+    {"id":"rp-ai-newbie","track":7,"tier":0,"goal":{"en":"Understand and use AI tools","hi":"AI टूल समझें और उपयोग करें"},
+     "steps":[
+       {"r":"url:https://www.cloudskillsboost.google/course_templates/536","why":"One hour: what generative AI is."},
+       {"r":"url:https://www.mygreatlearning.com/academy/learn-for-free/courses/prompt-engineering-for-chatgpt","why":"Write prompts that work."},
+       {"r":"url:https://github.com/microsoft/generative-ai-for-beginners","why":"Anchor course: lessons with small builds."},
+       {"r":"url:https://skillsbuild.org/hi/college-students/course-catalog/artificial-intelligence-fundamentals","why":"Hindi edition of AI fundamentals."},
+       {"r":"url:https://www.elementsofai.com/","why":"Alternative style: a calm, non-technical course."}
+     ]},
+    {"id":"rp-ai-fresher","track":7,"tier":1,"goal":{"en":"Learn machine learning (know some Python)","hi":"मशीन लर्निंग सीखें (थोड़ा Python आता है)"},
+     "steps":[
+       {"r":"url:https://www.kaggle.com/learn/intro-to-machine-learning","why":"Seven hours to your first model."},
+       {"r":"url:https://github.com/microsoft/ML-For-Beginners","why":"Anchor course: classic ML with projects."},
+       {"r":"url:https://developers.google.com/machine-learning/crash-course","why":"Alternative style: Google's interactive course."},
+       {"r":"url:https://www.kaggle.com/learn/intro-to-ai-agents","why":"Short course on agents once basics are in place."}
+     ]},
+    {"id":"rp-prog-newbie","track":3,"tier":0,"goal":{"en":"Learn to code from scratch","hi":"शून्य से कोडिंग सीखें"},
+     "steps":[
+       {"r":"url:https://cs50.harvard.edu/scratch/","why":"Anchor: think like a programmer with blocks before syntax."},
+       {"r":"url:https://www.kaggle.com/learn/intro-to-programming","why":"Five hours of Python in the browser, phone-friendly."},
+       {"r":"url:https://www.py4e.com/html3/02-variables-expressions-and-statements","why":"Short chapters you can read on a phone."},
+       {"r":"url:https://www.py4e.com/html3/03-conditional-execution","why":"Decisions in code."},
+       {"r":"url:https://www.py4e.com/html3/05-iteration","why":"Loops."},
+       {"r":"url:https://cs50.harvard.edu/x/","why":"Alternative: the full CS50x once Scratch is comfortable."}
+     ]},
+    {"id":"rp-digital-newbie","track":1,"tier":0,"goal":{"en":"Get comfortable with computers and the internet","hi":"कंप्यूटर और इंटरनेट के साथ सहज हों"},
+     "steps":[
+       {"r":"url:https://website.spoken-tutorial.org/watch/Introduction+to+Computers/Getting+to+know+computers/Hindi/","why":"In Hindi, under three hours."},
+       {"r":"url:https://edu.gcfglobal.org/en/computerbasics/","why":"Anchor: computer basics in short illustrated lessons."},
+       {"r":"url:https://edu.gcfglobal.org/en/email101/","why":"Alternative style: email, the first account most people need."},
+       {"r":"url:https://edu.gcfglobal.org/en/internetsafety/","why":"Stay safe online."},
+       {"r":"url:https://www.khanacademy.org/computing","why":"Broader computing library once basics are done."}
+     ]},
+    {"id":"rp-devops-newbie","track":9,"tier":0,"goal":{"en":"Learn Git, Linux and the command line","hi":"Git, Linux और कमांड लाइन सीखें"},
+     "steps":[
+       {"r":"url:https://learn.microsoft.com/en-us/training/modules/intro-to-git/","why":"One hour: what Git is for."},
+       {"r":"url:https://learngitbranching.js.org/","why":"Visual, interactive Git practice."},
+       {"r":"url:https://www.theodinproject.com/paths/foundations/courses/foundations#git-basics","why":"Git in a real project workflow."},
+       {"r":"url:https://missing.csail.mit.edu/","why":"Anchor: the tools every developer uses."},
+       {"r":"url:https://linuxjourney.com/","why":"Linux fundamentals in short readable units."}
+     ]},
+    {"id":"rp-mobile-newbie","track":11,"tier":0,"goal":{"en":"Build a mobile app","hi":"मोबाइल ऐप बनाएं"},
+     "steps":[
+       {"r":"url:https://www.youtube.com/@freecodecamphindi","why":"Anchor: Flutter in Hindi."},
+       {"r":"url:https://developers.google.com/learn/pathways/intro-to-flutter","why":"Alternative: Google's official Flutter pathway."},
+       {"r":"url:https://dart.dev/language","why":"The language behind Flutter, readable on a phone."},
+       {"r":"url:https://developer.android.com/courses/android-basics-compose/unit-1","why":"If you prefer native Android: Kotlin basics."}
+     ]},
+    {"id":"rp-career-newbie","track":14,"tier":0,"goal":{"en":"Get job-ready: resume, interviews, English","hi":"नौकरी के लिए तैयार हों: रिज़्यूमे, इंटरव्यू, अंग्रेज़ी"},
+     "steps":[
+       {"r":"url:https://edu.gcfglobal.org/en/resumewriting/","why":"Short, practical resume lessons."},
+       {"r":"url:https://edu.gcfglobal.org/en/interviewingskills/","why":"Interview basics."},
+       {"r":"url:https://www.tcsion.com/courses/interview-and-job-prep/introduction-to-soft-skills/","why":"Indian-context soft skills course."},
+       {"r":"url:https://www.freecodecamp.org/learn/a2-english-for-developers/","why":"English for tech work, self-paced."},
+       {"r":"url:https://cs50.harvard.edu/business/","why":"Anchor: technology concepts for non-technical roles."}
+     ]}
+  ]
+}

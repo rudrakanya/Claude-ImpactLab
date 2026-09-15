@@ -1,0 +1,97 @@
+Category,Title,URL
+New Roadmap,R Programming,https://roadmap.sh/r-programming
+New Roadmap,Power BI,https://roadmap.sh/power-bi
+Role Based,Frontend,https://roadmap.sh/frontend
+Role Based,Backend,https://roadmap.sh/backend
+Role Based,Full Stack,https://roadmap.sh/full-stack
+Role Based,Android,https://roadmap.sh/android
+Role Based,DevOps,https://roadmap.sh/devops
+Role Based,DevSecOps,https://roadmap.sh/devsecops
+Role Based,Data Analyst,https://roadmap.sh/data-analyst
+Role Based,AI Engineer,https://roadmap.sh/ai-engineer
+Role Based,AI and Data Scientist,https://roadmap.sh/ai-data-scientist
+Role Based,Data Engineer,https://roadmap.sh/data-engineer
+Role Based,Machine Learning,https://roadmap.sh/machine-learning
+Role Based,PostgreSQL,https://roadmap.sh/postgresql-dba
+Role Based,iOS,https://roadmap.sh/ios
+Role Based,Blockchain,https://roadmap.sh/blockchain
+Role Based,QA,https://roadmap.sh/qa
+Role Based,Software Architect,https://roadmap.sh/software-architect
+Role Based,API Design,https://roadmap.sh/api-design
+Role Based,Cyber Security,https://roadmap.sh/cyber-security
+Role Based,UX Design,https://roadmap.sh/ux-design
+Role Based,Technical Writer,https://roadmap.sh/technical-writer
+Role Based,Game Developer,https://roadmap.sh/game-developer
+Role Based,Server Side Game Developer,https://roadmap.sh/server-side-game-developer
+Role Based,MLOps,https://roadmap.sh/mlops
+Role Based,Product Manager,https://roadmap.sh/product-manager
+Role Based,Engineering Manager,https://roadmap.sh/engineering-manager
+Role Based,Developer Relations,https://roadmap.sh/devrel
+Role Based,BI Analyst,https://roadmap.sh/bi-analyst
+Role Based,AI Red Teaming,https://roadmap.sh/ai-red-teaming
+Role Based,Network Engineer,https://roadmap.sh/network-engineer
+Role Based,Forward Deployed Engineer,https://roadmap.sh/forward-deployed-engineer
+Skill Based,Claude Code,https://roadmap.sh/claude-code
+Skill Based,Python for Data Analysis,https://roadmap.sh/python-data-analysis
+Skill Based,R Programming,https://roadmap.sh/r-programming
+Skill Based,Vibe Coding,https://roadmap.sh/vibe-coding
+Skill Based,Power BI,https://roadmap.sh/power-bi
+Skill Based,LeetCode,https://roadmap.sh/leetcode
+Skill Based,Python,https://roadmap.sh/python
+Skill Based,Computer Science,https://roadmap.sh/computer-science
+Skill Based,SQL,https://roadmap.sh/sql
+Skill Based,OpenClaw,https://roadmap.sh/openclaw
+Skill Based,React,https://roadmap.sh/react
+Skill Based,Vue,https://roadmap.sh/vue
+Skill Based,Angular,https://roadmap.sh/angular
+Skill Based,JavaScript,https://roadmap.sh/javascript
+Skill Based,TypeScript,https://roadmap.sh/typescript
+Skill Based,Node.js,https://roadmap.sh/nodejs
+Skill Based,System Design,https://roadmap.sh/system-design
+Skill Based,Java,https://roadmap.sh/java
+Skill Based,ASP.NET Core,https://roadmap.sh/aspnet-core
+Skill Based,Spring Boot,https://roadmap.sh/spring-boot
+Skill Based,Flutter,https://roadmap.sh/flutter
+Skill Based,C Programming,https://roadmap.sh/c
+Skill Based,C++,https://roadmap.sh/cpp
+Skill Based,Rust,https://roadmap.sh/rust
+Skill Based,Go,https://roadmap.sh/golang
+Skill Based,AI Product Builders,https://roadmap.sh/ai-product-builder
+Skill Based,Design Architecture,https://roadmap.sh/software-design-architecture
+Skill Based,React Native,https://roadmap.sh/react-native
+Skill Based,Design System,https://roadmap.sh/design-system
+Skill Based,Prompt Engineering,https://roadmap.sh/prompt-engineering
+Skill Based,MongoDB,https://roadmap.sh/mongodb
+Skill Based,Linux,https://roadmap.sh/linux
+Skill Based,Kubernetes,https://roadmap.sh/kubernetes
+Skill Based,Docker,https://roadmap.sh/docker
+Skill Based,AWS,https://roadmap.sh/aws
+Skill Based,Terraform,https://roadmap.sh/terraform
+Skill Based,Data Structures & Algorithms,https://roadmap.sh/datastructures-and-algorithms
+Skill Based,Redis,https://roadmap.sh/redis
+Skill Based,Git and GitHub,https://roadmap.sh/git-github
+Skill Based,PHP,https://roadmap.sh/php
+Skill Based,Cloudflare,https://roadmap.sh/cloudflare
+Skill Based,AI Agents,https://roadmap.sh/ai-agents
+Skill Based,Next.js,https://roadmap.sh/nextjs
+Skill Based,Kotlin,https://roadmap.sh/kotlin
+Skill Based,HTML,https://roadmap.sh/html
+Skill Based,CSS,https://roadmap.sh/css
+Skill Based,Swift & Swift UI,https://roadmap.sh/swift-ui
+Skill Based,Shell / Bash,https://roadmap.sh/shell-bash
+Skill Based,Laravel,https://roadmap.sh/laravel
+Skill Based,Elasticsearch,https://roadmap.sh/elasticsearch
+Skill Based,WordPress,https://roadmap.sh/wordpress
+Skill Based,Django,https://roadmap.sh/django
+Skill Based,Ruby,https://roadmap.sh/ruby
+Skill Based,Ruby on Rails,https://roadmap.sh/ruby-on-rails
+Skill Based,Scala,https://roadmap.sh/scala
+Absolute Beginners,Frontend Beginner,https://roadmap.sh/frontend-beginner
+Absolute Beginners,Backend Beginner,https://roadmap.sh/backend-beginner
+Absolute Beginners,DevOps Beginner,https://roadmap.sh/devops-beginner
+Absolute Beginners,Git and GitHub Beginner,https://roadmap.sh/git-github-beginner
+Best Practices,AWS,https://roadmap.sh/aws-best-practices
+Best Practices,API Security,https://roadmap.sh/api-security-best-practices
+Best Practices,Backend Performance,https://roadmap.sh/backend-performance-best-practices
+Best Practices,Frontend Performance,https://roadmap.sh/frontend-performance-best-practices
+Best Practices,Code Review,https://roadmap.sh/code-review-best-practices

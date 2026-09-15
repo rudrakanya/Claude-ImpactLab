@@ -1,0 +1,38 @@
+PS-2
+What should I learn next?
+Theme
+Skills and digital literacy in a Tier-2 city
+Primary user
+A student or working learner acquiring technology skills outside a formal institution
+Secondary users
+Mentors, community learning spaces, libraries
+Background
+Bhopal has a large population of young people acquiring technology skills on their own, on mobile phones, from free video content and paid "roadmap" courses that are identical for every learner. The city has few visible technology employers compared with Bengaluru, Pune or Hyderabad, so learners lack local examples of where a skill leads and default to generic paths designed for other markets. Digital literacy is uneven: a significant share of learners begin with no working model of files, accounts or basic tooling.
+Problem statement
+A self-directed learner in Bhopal cannot determine what to learn next, in what order, or toward what realistic outcome. Content is abundant; sequencing, feedback and local relevance are absent.
+The result is high drop-off, wasted spending on generic courses, and skills that do not map to work within the learner's reach.
+Proposed solution
+A guidance tool that takes a learner's current knowledge, goal and circumstances, including device, time available and prior exposure, and returns a short, ordered learning path assembled from free resources, with a small verifiable project at each step and an explicit link from the path to the kinds of work it leads to, locally or remotely. The tool functions on a phone and adapts as the learner reports progress.
+Key capabilities
+Structured intake. Current skills, goal, constraints and available devices, captured without assuming prior vocabulary.
+Pathway generation. Ordered steps drawn from a curated, metadata-rich catalogue of free resources: level, skill, duration, prerequisites.
+Project checkpoints. A small project per step with clear acceptance criteria, serving as evidence of the skill.
+Work mapping. The categories of work the path leads to, the skills they require, and where they are found: Bhopal, Indore or remote.
+Progress and re-planning. The learner reports what is done; the path adjusts.
+Beginner support. Plain explanations of tooling basics, with no assumed background.
+Shareable summary. A one-page plan a mentor can review and annotate.
+Inputs and data sources
+A curated catalogue of free learning resources with structured metadata.
+Mentor-authored reference pathways for common goals.
+A dataset of local and remote work categories with required skills, derived from public job listings with employer names removed.
+Synthetic learner profiles with mentor-written expected next steps, for testing.
+Constraints
+No promises about employment. The tool describes categories of work and the skills they require; it does not guarantee outcomes.
+Only resources whose terms permit linking and reuse.
+No learner data retained beyond the session unless the learner explicitly saves a plan.
+Mobile-first, and usable on low-bandwidth connections.
+Expected outcomes and success criteria
+Mentor review finds the generated path appropriate for the learner profile in a clear majority of test cases.
+Time from intake to a usable plan is under five minutes.
+Every step carries a concrete project and a resource a mentor confirms is suitable.
+A learning space or mentor network confirms it would use the tool with a cohort.

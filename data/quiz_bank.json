@@ -1,0 +1,149 @@
+{
+  "note": "Adaptive placement quiz bank. Keys are track ids; each has 4 tier arrays (Newbie, Apprentice, Adept, Master) of questions. 'a' is the index of the correct option (options are shuffled deterministically at display time). 'tooling' is the basics cross-check shown when prior exposure is low. Newbie questions test working technical knowledge, not vocabulary alone.",
+  "tooling": [
+    {"q":"A file is named report.final.pdf. Which app type opens it?","hq":"एक फ़ाइल का नाम report.final.pdf है। इसे किस तरह का ऐप खोलेगा?","opts":["A PDF reader such as a browser or Adobe Reader","A spreadsheet app","The camera app","A music player"],"a":0},
+    {"q":"You need to send a 200 MB video to a mentor. What works best?","hq":"आपको मेंटर को 200 MB का वीडियो भेजना है। क्या सबसे अच्छा चलेगा?","opts":["Upload to Drive and share the link","Attach it to an email","Type it into a chat message","Take a screenshot of it"],"a":0},
+    {"q":"A site asks you to type the OTP it sent you. Someone on a call also asks for it. What do you do?","hq":"एक साइट आपसे भेजा गया OTP टाइप करने को कहती है। कॉल पर कोई व्यक्ति भी उसे मांगता है। आप क्या करेंगे?","opts":["Type it only into the site; never tell the caller","Read it to the caller to save time","Post it in a group so it is not lost","Reply to the SMS with it"],"a":0},
+    {"q":"Which path most likely points to a file inside a folder on a computer?","hq":"इनमें से कौन सा पथ कंप्यूटर पर किसी फ़ोल्डर के अंदर फ़ाइल की ओर इशारा करता है?","opts":["C:\\Users\\Asha\\Documents\\notes.txt","www.notes.txt","notes@documents","Asha/notes"],"a":0}
+  ],
+  "1": [
+    [{"q":"What does the .zip in photos.zip tell you?","hq":"photos.zip में .zip क्या बताता है?","opts":["It is a compressed archive that must be extracted to see the files","It is a video","It is a website link","It cannot be opened on a phone"],"a":0},
+     {"q":"A website address starts with https:// and shows a padlock. What does that guarantee?","hq":"वेब पता https:// से शुरू होता है और ताला दिखाता है। यह क्या गारंटी देता है?","opts":["Traffic between you and the site is encrypted, not that the site is honest","The site is run by the government","The site is virus-free","You are logged in"],"a":0}],
+    [{"q":"Your phone shows 'Storage almost full'. Which action frees the most space safely?","hq":"फ़ोन 'Storage almost full' दिखाता है। कौन सा कदम सुरक्षित रूप से सबसे ज़्यादा जगह खाली करता है?","opts":["Back up photos to cloud storage, then delete local copies","Uninstall the Settings app","Delete the Downloads folder without looking","Restart the phone"],"a":0},
+     {"q":"An email from 'support@yourbank-secure-login.com' asks you to confirm your PIN. Why is this suspicious?","hq":"'support@yourbank-secure-login.com' से ईमेल PIN की पुष्टि करने को कहता है। यह संदिग्ध क्यों है?","opts":["The domain is not the bank's real domain and banks never ask for a PIN","Emails cannot contain links","PINs are only asked by SMS","The email is too short"],"a":0}],
+    [{"q":"What is the practical difference between a password manager and browser autofill?","hq":"पासवर्ड मैनेजर और ब्राउज़र ऑटोफ़िल में व्यावहारिक अंतर क्या है?","opts":["A manager generates unique passwords and syncs them encrypted across devices","Autofill is more secure","There is no difference","A manager only works offline"],"a":0},
+     {"q":"Which two facts identify a device on a network?","hq":"नेटवर्क पर किसी डिवाइस की पहचान कौन से दो तथ्य करते हैं?","opts":["IP address and MAC address","Wallpaper and brand","Screen size and battery","Username and font"],"a":0}],
+    [{"q":"Why is SMS-based two-factor authentication weaker than an authenticator app?","hq":"SMS-आधारित टू-फ़ैक्टर ऑथेंटिकेटर ऐप से कमज़ोर क्यों है?","opts":["SIM swap and interception attacks can capture SMS codes","SMS codes are longer","Authenticator apps need internet","SMS is slower"],"a":0},
+     {"q":"When designing a digital-literacy session for first-time users, which sequencing principle matters most?","hq":"पहली बार सीखने वालों के लिए डिजिटल साक्षरता सत्र बनाते समय कौन सा क्रम सबसे ज़रूरी है?","opts":["One concrete hands-on task per new concept before the next concept","All vocabulary first, practice last","Keyboard shortcuts before mouse use","Advanced settings first to build confidence"],"a":0}]
+  ],
+  "2": [
+    [{"q":"In a spreadsheet, =SUM(B2:B10) does what?","hq":"स्प्रेडशीट में =SUM(B2:B10) क्या करता है?","opts":["Adds the values in cells B2 through B10","Counts the rows","Averages column B","Sorts B2 to B10"],"a":0},
+     {"q":"Which key combination copies selected text in most apps?","hq":"ज़्यादातर ऐप में चुना टेक्स्ट कॉपी करने की कुंजी?","opts":["Ctrl+C","Ctrl+P","Alt+F4","Shift+Enter"],"a":0}],
+    [{"q":"=VLOOKUP(A2, Sheet2!A:C, 3, FALSE) returns what?","hq":"=VLOOKUP(A2, Sheet2!A:C, 3, FALSE) क्या लौटाता है?","opts":["The value in the 3rd column of Sheet2 where column A exactly matches A2","The count of matches","The 3rd row of Sheet2","An error always"],"a":0},
+     {"q":"Mail merge needs which two inputs?","hq":"मेल मर्ज को कौन से दो इनपुट चाहिए?","opts":["A template document and a data source (list of recipients)","Two PDFs","A printer and a scanner","A spreadsheet and a chart"],"a":0}],
+    [{"q":"Why use a pivot table instead of many SUMIF formulas?","hq":"कई SUMIF फ़ॉर्मूलों के बजाय पिवट टेबल क्यों?","opts":["It summarises by any category interactively and updates when data changes","It looks nicer","It is the only way to add numbers","It works without data"],"a":0},
+     {"q":"Data validation on a column restricted to a dropdown list prevents what?","hq":"कॉलम पर ड्रॉपडाउन सूची वाली डेटा वैलिडेशन क्या रोकती है?","opts":["Typos and inconsistent category names","Slow formulas","Printing","Sorting"],"a":0}],
+    [{"q":"In Google Apps Script, a time-driven trigger is used to:","hq":"Google Apps Script में time-driven ट्रिगर किसके लिए है:","opts":["Run a function automatically on a schedule","Format cells faster","Change the font","Share the sheet"],"a":0},
+     {"q":"An Excel macro recorded with absolute references will:","hq":"Absolute references से रिकॉर्ड किया Excel मैक्रो:","opts":["Always act on the same cells regardless of the selection","Adapt to the active cell","Delete formulas","Only run once"],"a":0}]
+  ],
+  "3": [
+    [{"q":"What is printed?  x = 5;  x = x * 2;  print(x + 1)","hq":"क्या प्रिंट होगा?  x = 5;  x = x * 2;  print(x + 1)","opts":["11","10","6","51"],"a":0},
+     {"q":"How many times does this loop print?  for i in range(1, 4): print(i)","hq":"यह लूप कितनी बार प्रिंट करता है?  for i in range(1, 4): print(i)","opts":["3","4","1","0"],"a":0}],
+    [{"q":"What does this return?  def f(lst): return [x for x in lst if x % 2 == 0]   with f([1,2,3,4])","hq":"यह क्या लौटाता है?  def f(lst): return [x for x in lst if x % 2 == 0]   f([1,2,3,4]) के साथ","opts":["[2, 4]","[1, 3]","[1, 2, 3, 4]","4"],"a":0},
+     {"q":"Why does modifying a list inside a function change the caller's list in Python?","hq":"Python में फ़ंक्शन के अंदर लिस्ट बदलने से कॉलर की लिस्ट क्यों बदलती है?","opts":["Lists are mutable and passed by reference to the same object","Lists are copied","Functions are global","It does not change it"],"a":0}],
+    [{"q":"Which data structure gives O(1) average lookup by key?","hq":"किस डेटा स्ट्रक्चर में कुंजी से औसत O(1) लुकअप होता है?","opts":["Hash map / dictionary","Linked list","Sorted array with linear scan","Stack"],"a":0},
+     {"q":"What is the base case in a recursive function for?","hq":"रिकर्सिव फ़ंक्शन में बेस केस किसके लिए है?","opts":["Stopping the recursion so it does not run forever","Speeding up the loop","Declaring variables","Catching exceptions"],"a":0}],
+    [{"q":"What does a closure capture?","hq":"क्लोज़र क्या पकड़ता है?","opts":["Variables from its enclosing scope","Only global variables","Nothing","The call stack"],"a":0},
+     {"q":"Tail-call optimisation helps mainly with what?","hq":"टेल-कॉल ऑप्टिमाइज़ेशन मुख्यतः किसमें मदद करता है?","opts":["Deep recursion without stack growth","Faster disk reads","Smaller binaries","Garbage collection"],"a":0}]
+  ],
+  "4": [
+    [{"q":"Which HTML is a correct link to example.com?","hq":"example.com का सही HTML लिंक कौन सा है?","opts":["<a href=\"https://example.com\">Site</a>","<link>https://example.com</link>","<a>https://example.com</a href>","<url src=\"example.com\">"],"a":0},
+     {"q":"In CSS, .card { padding: 16px; } applies to:","hq":"CSS में .card { padding: 16px; } किस पर लागू होता है:","opts":["Every element with class=\"card\"","The element with id=\"card\"","All <card> tags","The body"],"a":0}],
+    [{"q":"After fetch(url), why do you call response.json()?","hq":"fetch(url) के बाद response.json() क्यों कॉल करते हैं?","opts":["To parse the body text into a JavaScript object (it returns a promise)","To send the request","To set CSS","To reload the page"],"a":0},
+     {"q":"In flexbox, which property centres items along the main axis?","hq":"flexbox में मुख्य अक्ष पर आइटम केंद्रित करने का गुण?","opts":["justify-content: center","align-self: top","display: block","float: center"],"a":0}],
+    [{"q":"A POST /login returns 401. What does that mean?","hq":"POST /login ने 401 लौटाया। इसका अर्थ?","opts":["Unauthorized: credentials missing or wrong","Resource not found","Server crashed","Redirect"],"a":0},
+     {"q":"In React, what triggers a re-render?","hq":"React में री-रेंडर क्या ट्रिगर करता है?","opts":["State or props changing","A CSS change","Page reload only","A console.log"],"a":0}],
+    [{"q":"What does a Content Security Policy mainly prevent?","hq":"Content Security Policy मुख्यतः क्या रोकती है?","opts":["Loading scripts from untrusted sources (XSS)","Slow images","Broken links","Large cookies"],"a":0},
+     {"q":"Which metric measures when the main content is visible?","hq":"कौन सा मेट्रिक बताता है मुख्य सामग्री कब दिखी?","opts":["Largest Contentful Paint","Time to First Byte","Cumulative Layout Shift","Total Blocking Time"],"a":0}]
+  ],
+  "5": [
+    [{"q":"SELECT name FROM students WHERE city = 'Bhopal'; returns:","hq":"SELECT name FROM students WHERE city = 'Bhopal'; क्या लौटाता है:","opts":["Names of students whose city is Bhopal","All columns of all students","The count of students","The city column"],"a":0},
+     {"q":"In a spreadsheet of sales, which layout is 'tidy' for analysis?","hq":"बिक्री की स्प्रेडशीट में विश्लेषण के लिए कौन सा लेआउट 'tidy' है?","opts":["One row per sale with columns date, product, amount","One sheet per day with totals in merged cells","Products as rows and every date as a new column","Notes typed under the table"],"a":0}],
+    [{"q":"What does an INNER JOIN return?","hq":"INNER JOIN क्या लौटाता है?","opts":["Only rows with matching keys in both tables","All rows from both tables","Rows from the left table only","Duplicate rows"],"a":0},
+     {"q":"What is a primary key?","hq":"प्राइमरी की क्या है?","opts":["A column (or set) that uniquely identifies each row and cannot be NULL","The first column","A password for the table","The largest value"],"a":0}],
+    [{"q":"Why add an index to a column?","hq":"किसी कॉलम पर इंडेक्स क्यों जोड़ें?","opts":["Faster lookups on that column at the cost of slower writes","Smaller table size","To allow NULLs","To rename it"],"a":0},
+     {"q":"What does third normal form remove?","hq":"थर्ड नॉर्मल फ़ॉर्म क्या हटाता है?","opts":["Transitive dependencies on non-key columns","All foreign keys","Indexes","NULL values"],"a":0}],
+    [{"q":"What guarantees do ACID transactions give?","hq":"ACID लेन-देन क्या गारंटी देते हैं?","opts":["Atomicity, consistency, isolation, durability","Availability, cost, indexing, dates","Access, caching, integers, decimals","None"],"a":0},
+     {"q":"A B-tree index is best for which queries?","hq":"B-tree इंडेक्स किन क्वेरी के लिए सबसे अच्छा है?","opts":["Range and equality lookups","Full-text search","Image similarity","Random sampling"],"a":0}]
+  ],
+  "6": [
+    [{"q":"Scores: 40, 50, 50, 60, 100. Which is larger, the mean or the median?","hq":"अंक: 40, 50, 50, 60, 100। माध्य या माध्यिका, कौन बड़ा है?","opts":["The mean (60) is larger than the median (50) because of the outlier 100","The median is larger","They are equal","Cannot be computed"],"a":0},
+     {"q":"Which chart best shows how monthly rainfall changed over 12 months?","hq":"12 महीनों में मासिक वर्षा का बदलाव कौन सा चार्ट सबसे अच्छा दिखाता है?","opts":["Line chart","Pie chart","Word cloud","Single number"],"a":0}],
+    [{"q":"In pandas, df.groupby('city')['amount'].mean() does what?","hq":"pandas में df.groupby('city')['amount'].mean() क्या करता है?","opts":["Average amount per city","Deletes the city column","Sorts by amount","Plots a chart"],"a":0},
+     {"q":"A correlation of 0.9 between ice-cream sales and drownings means:","hq":"आइसक्रीम बिक्री और डूबने के बीच 0.9 का सहसंबंध बताता है:","opts":["They move together, likely due to a third factor (summer); not causation","Ice cream causes drowning","Drowning causes ice-cream sales","The data is wrong"],"a":0}],
+    [{"q":"A p-value of 0.03 means:","hq":"p-value 0.03 का अर्थ:","opts":["Data this extreme is unlikely if the null hypothesis is true","The hypothesis is 97% true","The effect is large","The sample is too small"],"a":0},
+     {"q":"Why split data into train and test sets?","hq":"डेटा को train और test में क्यों बांटें?","opts":["To estimate performance on unseen data","To make training faster","To remove outliers","To balance classes"],"a":0}],
+    [{"q":"Which method handles confounding in observational data?","hq":"अवलोकन डेटा में confounding संभालने की विधि?","opts":["Propensity score matching or regression adjustment","Larger pie charts","Removing the outcome","Min-max scaling"],"a":0},
+     {"q":"What does a Bayesian credible interval represent?","hq":"बेयेसियन क्रेडिबल इंटरवल क्या दर्शाता है?","opts":["A range with a stated posterior probability of containing the parameter","The confidence level of the sample","The range of the data","The standard error"],"a":0}]
+  ],
+  "7": [
+    [{"q":"You ask an AI assistant for a court judgment citation and it gives one confidently. What should you do before using it?","hq":"आप AI सहायक से अदालत के फ़ैसले का संदर्भ मांगते हैं और वह आत्मविश्वास से देता है। उपयोग से पहले क्या करें?","opts":["Verify it in a primary source; models can fabricate citations","Use it; confident answers are correct","Ask the same question again","Translate it first"],"a":0},
+     {"q":"Which prompt is likely to get a better answer?","hq":"कौन सा प्रॉम्प्ट बेहतर जवाब देगा?","opts":["\"Summarise this notice in 3 bullet points for a Class 10 student\" with the notice pasted","\"Summarise\"","\"Do the thing\"","\"Hello\""],"a":0}],
+    [{"q":"In supervised learning, what does the model learn from?","hq":"सुपरवाइज़्ड लर्निंग में मॉडल किससे सीखता है?","opts":["Examples with known labels","Random noise","Only unlabelled text","The user's clicks"],"a":0},
+     {"q":"A model scores 99% on training data and 60% on new data. This is:","hq":"मॉडल ट्रेनिंग डेटा पर 99% और नए डेटा पर 60% देता है। यह है:","opts":["Overfitting","Underfitting","Perfect generalisation","A data leak in the test set only"],"a":0}],
+    [{"q":"What does gradient descent do?","hq":"ग्रेडिएंट डिसेंट क्या करता है?","opts":["Updates parameters to reduce the loss","Sorts the dataset","Encrypts the model","Chooses the learning rate"],"a":0},
+     {"q":"In retrieval-augmented generation, what is retrieved?","hq":"RAG में क्या रिट्रीव किया जाता है?","opts":["Relevant documents to include in the prompt","Model weights","User passwords","GPU memory"],"a":0}],
+    [{"q":"What does the attention mechanism compute?","hq":"अटेंशन मैकेनिज़्म क्या गणना करता है?","opts":["Weighted relevance between tokens","A hash of the input","The learning rate","Batch size"],"a":0},
+     {"q":"What is the purpose of KL divergence in variational inference?","hq":"वेरिएशनल इन्फ़रेंस में KL डाइवर्जेंस का उद्देश्य?","opts":["Measure distance between approximate and true posterior","Normalise inputs","Tokenise text","Speed up backprop"],"a":0}]
+  ],
+  "8": [
+    [{"q":"What is the decimal value of binary 1010?","hq":"बाइनरी 1010 का दशमलव मान?","opts":["10","5","12","1010"],"a":0},
+     {"q":"Binary search on a sorted list of 1000 items needs at most about how many comparisons?","hq":"1000 आइटम की सॉर्टेड सूची पर बाइनरी सर्च को अधिकतम लगभग कितनी तुलनाएं चाहिए?","opts":["10","1000","500","100"],"a":0}],
+    [{"q":"Time complexity of binary search:","hq":"बाइनरी सर्च की समय जटिलता:","opts":["O(log n)","O(n)","O(n^2)","O(1)"],"a":0},
+     {"q":"Which structure is LIFO?","hq":"कौन सी संरचना LIFO है?","opts":["Stack","Queue","Tree","Graph"],"a":0}],
+    [{"q":"Which algorithm finds shortest paths with non-negative weights?","hq":"गैर-ऋणात्मक भार वाले सबसे छोटे रास्ते कौन सा एल्गोरिदम खोजता है?","opts":["Dijkstra","Bubble sort","DFS only","Kruskal"],"a":0},
+     {"q":"What is a race condition?","hq":"रेस कंडीशन क्या है?","opts":["Result depends on timing of concurrent operations","A fast CPU","A sorting bug","A network timeout"],"a":0}],
+    [{"q":"What does the CAP theorem trade off?","hq":"CAP प्रमेय किसका समझौता करता है?","opts":["Consistency, availability, partition tolerance","CPU, ALU, PC","Cache, address, page","Nothing"],"a":0},
+     {"q":"Amortised O(1) for dynamic array append comes from:","hq":"डायनामिक ऐरे में append का amortised O(1) कहां से आता है?","opts":["Doubling capacity occasionally","Sorting on insert","Hashing indices","Using a linked list"],"a":0}]
+  ],
+  "9": [
+    [{"q":"On Linux, which command moves into the folder named projects?","hq":"Linux में projects नाम के फ़ोल्डर में जाने की कमांड?","opts":["cd projects","ls projects","mkdir projects","rm projects"],"a":0},
+     {"q":"What is the difference between git add and git commit?","hq":"git add और git commit में अंतर?","opts":["add stages changes; commit records the staged snapshot","They are the same","commit uploads to GitHub","add deletes files"],"a":0}],
+    [{"q":"What does git pull do?","hq":"git pull क्या करता है?","opts":["Fetches from the remote and merges into the current branch","Uploads your commits","Deletes a branch","Creates a repository"],"a":0},
+     {"q":"chmod 644 file.txt sets which permissions?","hq":"chmod 644 file.txt कौन सी अनुमतियां देता है?","opts":["Owner read/write; group and others read only","Everyone can execute","No one can read","Owner only, full access"],"a":0}],
+    [{"q":"What is a Docker image?","hq":"Docker इमेज क्या है?","opts":["A read-only template to create containers","A screenshot","A virtual machine disk","A backup"],"a":0},
+     {"q":"What does CI do on each push?","hq":"हर पुश पर CI क्या करता है?","opts":["Runs tests and builds automatically","Deletes old branches","Emails the team only","Formats code manually"],"a":0}],
+    [{"q":"What is an error budget in SRE?","hq":"SRE में एरर बजट क्या है?","opts":["Allowed unreliability under an SLO","Cost of servers","Number of bugs per sprint","CPU quota"],"a":0},
+     {"q":"Kubernetes uses which object to keep N replicas running?","hq":"N प्रतिकृतियां चालू रखने के लिए Kubernetes कौन सा ऑब्जेक्ट उपयोग करता है?","opts":["Deployment / ReplicaSet","ConfigMap","Ingress","Secret"],"a":0}]
+  ],
+  "10": [
+    [{"q":"Which password is hardest to crack?","hq":"कौन सा पासवर्ड तोड़ना सबसे कठिन है?","opts":["Tea!Monsoon-47-lake","Bhopal2026","password123","qwerty"],"a":0},
+     {"q":"A link reads paytm-refund.co.in-secure.xyz/claim. Why is it suspicious?","hq":"लिंक paytm-refund.co.in-secure.xyz/claim है। यह संदिग्ध क्यों है?","opts":["The real domain is .xyz; the familiar brand name is just a subdomain trick","Links cannot contain hyphens","Refunds are never online","It is too long"],"a":0}],
+    [{"q":"What does a firewall do?","hq":"फ़ायरवॉल क्या करता है?","opts":["Filters network traffic by rules","Speeds up the internet","Stores passwords","Encrypts the disk"],"a":0},
+     {"q":"Input ' OR 1=1 -- in a login form is an attempt at:","hq":"लॉगिन फ़ॉर्म में ' OR 1=1 -- इनपुट किसका प्रयास है:","opts":["SQL injection","Cross-site scripting","A password reset","Port scanning"],"a":0}],
+    [{"q":"Which header helps prevent clickjacking?","hq":"क्लिकजैकिंग रोकने में कौन सा हेडर मदद करता है?","opts":["X-Frame-Options / frame-ancestors","Content-Length","Accept","User-Agent"],"a":0},
+     {"q":"What is the goal of privilege escalation in a pentest?","hq":"पेनटेस्ट में प्रिविलेज एस्केलेशन का लक्ष्य?","opts":["Gain higher permissions than initially obtained","Slow down the server","Delete logs","Change the wallpaper"],"a":0}],
+    [{"q":"What mitigates stack buffer overflow exploitation?","hq":"स्टैक बफ़र ओवरफ़्लो शोषण को क्या कम करता है?","opts":["Stack canaries, ASLR, non-executable stack","Longer passwords","HTTPS","Firewalls"],"a":0},
+     {"q":"What does a padding oracle attack exploit?","hq":"पैडिंग ओरेकल हमला किसका शोषण करता है?","opts":["Error differences revealing valid padding in CBC decryption","Weak passwords","Open ports","DNS caching"],"a":0}]
+  ],
+  "11": [
+    [{"q":"Flutter apps are written in which language?","hq":"Flutter ऐप किस भाषा में लिखे जाते हैं?","opts":["Dart","PHP","Ruby","SQL"],"a":0},
+     {"q":"An APK file is:","hq":"APK फ़ाइल क्या है:","opts":["An Android app package that can be installed on a device","A photo format","A spreadsheet","An iOS app"],"a":0}],
+    [{"q":"In Jetpack Compose, UI is described as:","hq":"Jetpack Compose में UI कैसे लिखा जाता है:","opts":["Composable functions","XML only","HTML","SQL tables"],"a":0},
+     {"q":"In Flutter, what is the difference between StatelessWidget and StatefulWidget?","hq":"Flutter में StatelessWidget और StatefulWidget में अंतर?","opts":["Stateful widgets hold mutable state that can trigger rebuilds","Stateless widgets are faster to write only","There is no difference","Stateless widgets cannot show text"],"a":0}],
+    [{"q":"Why do network calls need to run off the main thread?","hq":"नेटवर्क कॉल मुख्य थ्रेड से अलग क्यों चलानी चाहिए?","opts":["To keep the UI responsive","To save battery","To avoid permissions","To use less memory"],"a":0},
+     {"q":"What does Room (Android) or sqflite (Flutter) provide?","hq":"Room (Android) या sqflite (Flutter) क्या देते हैं?","opts":["Local database storage","Push notifications","Camera access","Ads"],"a":0}],
+    [{"q":"What is the purpose of a baseline profile in Android?","hq":"Android में बेसलाइन प्रोफ़ाइल का उद्देश्य?","opts":["Faster startup via ahead-of-time compilation hints","Smaller icons","More permissions","Dark mode"],"a":0},
+     {"q":"Which tool profiles UI jank frame-by-frame?","hq":"कौन सा टूल UI jank को फ़्रेम-दर-फ़्रेम प्रोफ़ाइल करता है?","opts":["Perfetto / Flutter DevTools timeline","Logcat only","Play Console","Gradle"],"a":0}]
+  ],
+  "12": [
+    [{"q":"What makes a blockchain hard to tamper with?","hq":"ब्लॉकचेन से छेड़छाड़ कठिन क्यों है?","opts":["Each block includes the hash of the previous block, and copies are held by many nodes","It is stored in one secure bank","Blocks are encrypted with a password","Only governments can write to it"],"a":0},
+     {"q":"If you share your wallet's seed phrase, what can happen?","hq":"अगर आप अपने वॉलेट का सीड फ़्रेज़ साझा करें तो क्या हो सकता है?","opts":["Anyone with it can move all your funds","Nothing; it is like a username","Only viewing is possible","The wallet locks"],"a":0}],
+    [{"q":"What is gas on Ethereum?","hq":"Ethereum पर गैस क्या है?","opts":["A fee for computation","A token name","A block size","A wallet"],"a":0},
+     {"q":"Smart contracts on Ethereum are commonly written in:","hq":"Ethereum पर स्मार्ट कॉन्ट्रैक्ट आमतौर पर किसमें लिखे जाते हैं:","opts":["Solidity","HTML","Excel","Swift"],"a":0}],
+    [{"q":"What is a reentrancy attack?","hq":"रीएंट्रेंसी हमला क्या है?","opts":["A contract calls back into the caller before state updates","A password reuse","A hard fork","A gas refund"],"a":0},
+     {"q":"What does an ERC-20 standard define?","hq":"ERC-20 मानक क्या परिभाषित करता है?","opts":["A fungible token interface","A wallet UI","A mining algorithm","A block explorer"],"a":0}],
+    [{"q":"What does a zk-SNARK let you prove?","hq":"zk-SNARK क्या साबित करने देता है?","opts":["A statement is true without revealing the witness","A transaction is fast","Gas is cheap","A wallet is old"],"a":0},
+     {"q":"MEV refers to:","hq":"MEV का अर्थ:","opts":["Value extracted by ordering or inserting transactions","Minimum ether value","Miner electricity volume","A token"],"a":0}]
+  ],
+  "13": [
+    [{"q":"In R, mean(c(2, 4, 9)) returns:","hq":"R में mean(c(2, 4, 9)) क्या लौटाता है:","opts":["5","15","4","3"],"a":0},
+     {"q":"What is a data frame in R?","hq":"R में डेटा फ़्रेम क्या है?","opts":["A table where each column is a vector of one type","A picture","A file path","A package manager"],"a":0}],
+    [{"q":"Which R package family is commonly used for plotting?","hq":"R में प्लॉटिंग के लिए आम पैकेज?","opts":["ggplot2","numpy","pandas","matplotlib"],"a":0},
+     {"q":"In Julia, what makes multiple dispatch different from OOP methods?","hq":"Julia में मल्टीपल डिस्पैच OOP विधियों से कैसे अलग है?","opts":["Method chosen by types of all arguments","Only the first argument matters","No types at all","Methods are global variables"],"a":0}],
+    [{"q":"What does vectorisation avoid?","hq":"वेक्टराइज़ेशन किससे बचाता है?","opts":["Slow explicit loops over elements","Memory allocation entirely","Floating point","Plotting"],"a":0},
+     {"q":"Numerical integration error typically decreases with:","hq":"संख्यात्मक समाकलन की त्रुटि आमतौर पर किससे घटती है:","opts":["Smaller step size (to a limit)","Larger step size","More colours","Fewer functions"],"a":0}],
+    [{"q":"Stiff ODEs are best solved with:","hq":"Stiff ODE सबसे अच्छे किससे हल होते हैं:","opts":["Implicit methods","Explicit Euler","Random sampling","Bisection"],"a":0},
+     {"q":"What does type stability give Julia code?","hq":"टाइप स्टेबिलिटी Julia कोड को क्या देती है?","opts":["Predictable, fast compiled code","Automatic plots","Fewer packages","Global variables"],"a":0}]
+  ],
+  "14": [
+    [{"q":"Which resume line is strongest for a fresher?","hq":"फ्रेशर के लिए कौन सी रिज़्यूमे लाइन सबसे मज़बूत है?","opts":["Built a billing sheet for a local shop that cut monthly closing from 3 hours to 20 minutes","Hardworking and sincere","Knows computer","Team player with passion"],"a":0},
+     {"q":"An interviewer asks a question you cannot answer. Best response?","hq":"इंटरव्यूअर ऐसा सवाल पूछे जिसका जवाब न आता हो। सबसे अच्छा जवाब?","opts":["Say what you do know, how you would find out, and offer to follow up","Stay silent","Guess confidently","Change the topic"],"a":0}],
+    [{"q":"What belongs in a good GitHub project README?","hq":"अच्छे GitHub प्रोजेक्ट README में क्या हो?","opts":["What it does, how to run it, and a screenshot or example","Your phone number","The full source code copied in","Only the licence"],"a":0},
+     {"q":"What should a good commit or PR description include?","hq":"अच्छे कमिट या PR विवरण में क्या हो?","opts":["What changed and why","Only the date","Your phone number","Nothing"],"a":0}],
+    [{"q":"In technical writing, which is better?","hq":"तकनीकी लेखन में कौन सा बेहतर है?","opts":["Short sentences, active voice, one idea each","Long paragraphs of jargon","No headings","All caps"],"a":0},
+     {"q":"What is the first step of a good open-source contribution?","hq":"अच्छे ओपन-सोर्स योगदान का पहला कदम?","opts":["Read the contributing guide and pick a small issue","Rewrite the whole project","Email the maintainer daily","Fork and never open a PR"],"a":0}],
+    [{"q":"When mentoring, what is most useful feedback?","hq":"मेंटरिंग में सबसे उपयोगी फ़ीडबैक?","opts":["Specific, actionable, tied to evidence","Vague praise","Only criticism","Silence"],"a":0},
+     {"q":"A blameless post-mortem focuses on:","hq":"ब्लेमलेस पोस्ट-मॉर्टम किस पर केंद्रित है:","opts":["Systems and process fixes, not individuals","Finding who to punish","Hiding the incident","Salary cuts"],"a":0}]
+  ]
+}

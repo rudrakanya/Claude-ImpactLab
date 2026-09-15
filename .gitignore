@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.firebase/
+*.log
+.DS_Store
+Thumbs.db
+.claude/launch.json
+# Design references stay out of the app repo (large third-party UI kits); see README for their role.
+DesignAssets/
